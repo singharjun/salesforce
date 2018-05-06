@@ -1,0 +1,63 @@
+<apex:page controller="EventbriteSync.EventbriteValidation">
+    <apex:sectionHeader title="Salesforce Permissions" />
+    <apex:form >
+    <apex:pageBlock rendered="{!checkObjectCRUD}">
+    <apex:pageMessage summary="All object permission requirements have been met." severity="confirm" strength="1"/>
+    </apex:pageBlock>
+    <apex:outputPanel rendered="{!NOT(checkObjectCRUD)}">
+        <apex:repeat value="{!MappedObjects}" var="obj">
+            <apex:pageBlock title="Object and Field Permissions" mode="edit">
+                <apex:pageBlockSection columns="2" title="Missing Permissions - {!obj}" >
+                    <apex:pageBlockSectionItem >
+                        <apex:outputPanel >
+                            <apex:outputLabel styleClass="labelCol" value="Object Permissions:  " />
+                            <br /><br />
+
+                            <apex:pageBlockTable value="{!MapObjects[obj]}" var="perm">
+                                <apex:column headerValue="Object" >
+                                    <apex:outputText value="{!obj}" />
+                                </apex:column>
+                                <apex:column headerValue="Create" >
+                                    <apex:inputCheckBox value="{!perm.c}" disabled="true"/>
+                                </apex:column>
+                                <apex:column headerValue="Read" >
+                                    <apex:inputCheckBox value="{!perm.r}" disabled="true"/>
+                                </apex:column>
+                                <apex:column headerValue="Update" >
+                                    <apex:inputCheckBox value="{!perm.u}" disabled="true"/>
+                                </apex:column>
+                                <apex:column headerValue="Delete" >
+                                    <apex:inputCheckBox value="{!perm.d}" disabled="true"/>
+                                </apex:column>
+                            </apex:pageBlockTable>
+                            <br />
+                            <apex:outputText value="*Missing permissions are unchecked." />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                   <!-- <apex:pageBlockSectionItem >
+                        <apex:outputPanel >
+                            <apex:outputLabel styleClass="labelCol" value="Field Permissions:  " />
+                            <br /><br />
+                            <apex:pageBlockTable value="{!MapFields[obj]}" var="perm" rendered="{!ObjWrapper[obj].display}">
+                                <apex:column value="{!perm.field}" headerValue="Field" />
+                                <apex:column headerValue="Create" >
+                                    <apex:inputCheckBox value="{!perm.canCreate}" disabled="true"/>
+                                </apex:column>
+                                <apex:column headerValue="Update" >
+                                    <apex:inputCheckBox value="{!perm.canUpdate}" disabled="true"/>
+                                </apex:column>
+                            </apex:pageBlockTable>
+                            <apex:outputText rendered="{!!ObjWrapper[obj].display}">
+                                No field permission issues.
+                            </apex:outputText>  
+                        </apex:outputpanel>
+                    </apex:pageBlockSectionItem>-->
+                
+                </apex:pageBlockSection>
+                
+          </apex:pageBlock>
+        </apex:repeat>
+    </apex:outputPanel>
+    </apex:form>
+</apex:page>

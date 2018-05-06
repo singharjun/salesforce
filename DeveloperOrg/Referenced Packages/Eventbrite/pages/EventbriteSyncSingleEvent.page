@@ -1,0 +1,20 @@
+<apex:page controller="EventbriteSync.EventbriteSyncSingleEvent" action="{!syncThisEvent}" tabStyle="Eventbrite__tab" >
+<apex:form id="all">
+    <apex:sectionHeader title="Eventbrite" subtitle="{!$Label.eventbritesync__Single_Event_Sync}"/>
+    
+    <apex:pageblock >
+        <apex:pageBlockButtons location="top" >
+        <apex:outputPanel rendered="{!Core.EBApp.EventbriteSync__AccessToken__c == null}">
+            <input type="button" class="btn" onClick="window.location.href=('{!$Page.EventbriteConfig}')" value = "{!$Label.Go_to_Eventbrite_Config}"/>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!Core.EBApp.EventbriteSync__AccessToken__c != null}">
+            <apex:commandButton value="{!$Label.eventbritesync__Go_Back}" action="{!GoBack}" />
+        </apex:outputPanel>
+        </apex:pageBlockButtons> 
+            <apex:pageMessage rendered="{!Core.EBApp.EventbriteSync__AccessToken__c == null}" summary="{!$Label.eventbritesync__Please_ensure_you_have_provided_the_Eventbrite_Application_Key}" severity="warning" strength="1"/>
+        <apex:pagemessages />
+
+    </apex:pageblock>
+    
+</apex:form>
+</apex:page>

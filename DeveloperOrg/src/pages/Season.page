@@ -1,0 +1,72 @@
+<apex:page Controller="seasonControllerExtension" >
+  <apex:sectionHeader title="Season" subtitle="Summer 2015"/>
+  <apex:form >
+      <apex:pageBlock id="pbblock">
+          <apex:pageBlockButtons >
+          <!--    <apex:commandButton action="{!save}" value="Save"/>
+              <apex:commandButton action="{!cancel}" value="Cancel"/> -->
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection columns="2" title="Season Details" collapsible="false">              
+                <apex:inputField value="{!seasonRec.name}"/>
+                <apex:inputField value="{!seasonRec.Racer__c}"/>   
+                <apex:inputField value="{!seasonRec.Year__c}"/>   
+                <apex:inputField value="{!seasonRec.Car_Name__c}"/>   
+                <apex:inputField value="{!seasonRec.Model__c}"/>   
+                <apex:inputField value="{!seasonRec.Horse_Power__c}"/>               
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockSection columns="2" title="Season Stats" collapsible="false">              
+               <apex:outputField label="Race Entries" value="{!seasonRec.name}"></apex:outputField>
+               <apex:outputField value="{!seasonRec.name}" label="Total Distance"></apex:outputField>
+               <apex:outputField value="{!seasonRec.name}" label="Remaining Entries"></apex:outputField>
+               <apex:outputField value="{!seasonRec.name}" label="Remaining Distance"></apex:outputField>
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockSection title="Tracks" collapsible="false" columns="4">
+        
+                  <apex:outputText style="font-weight:bold;font-color:#4a4a56" value="Track Difficulty Level filter"></apex:outputText>
+                  <apex:selectList value="{!difficulty}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!items}"/>
+                </apex:selectList>
+                  <apex:outputPanel style="color:#4AA02C;font-weight:bold">
+                    <apex:actionStatus id="fetchStatus" startText="Updating..." stopText=""/>
+                </apex:outputPanel>
+          </apex:pageBlockSection>
+         </apex:pageBlock>
+        <apex:pageBlock id="outPanel"> 
+        <apex:outputPanel id="oututPanel">
+           <apex:pageBlockTable value="{!tracks}" var="item" id="pbtable">
+               <apex:column > 
+                <apex:facet name="header">Select</apex:facet>
+                    <apex:inputCheckbox value="{!item.selected}"/>
+                </apex:column>
+               <apex:column > 
+                <apex:facet name="header">Track First Name</apex:facet>
+                    {!item.track.name}
+                </apex:column>
+                <apex:column > 
+                <apex:facet name="header">Location Detail</apex:facet>
+                    {!item.track.Location__c}
+                </apex:column>
+                <apex:column > 
+                <apex:facet name="header">Difficulty Level</apex:facet>
+                   {!item.track.Difficulty__c}
+                </apex:column>
+                <apex:column > 
+                <apex:facet name="header">CircuitLength(KM)</apex:facet>
+                    {!item.track.CircuitLengthKM__c}
+                </apex:column>
+        </apex:pageBlockTable>
+        </apex:outputPanel>
+            <apex:pageBlockButtons location="bottom">
+                     
+                <apex:commandButton status="fetchStatus" reRender="outPanel" value="First" action="{!setCon.first}" disabled="{!!setCon.hasPrevious}" title="First"/>
+                <apex:commandButton status="fetchStatus" reRender="outPanel" value="Prev" action="{!setCon.previous}" disabled="{!!setCon.hasPrevious}" title="Prev"/>
+                <apex:outputText >{!(setCon.pageNumber * size)+1-size}-{!IF((setCon.pageNumber * size)>noOfRecords, noOfRecords,(setCon.pageNumber * size))} of {!noOfRecords}</apex:outputText>
+                <apex:commandButton status="fetchStatus" reRender="outPanel" value="Next" action="{!setCon.next}" disabled="{!!setCon.hasNext}" title="Next"/>
+                <apex:commandButton status="fetchStatus" reRender="outPanel" value="Last" action="{!setCon.last}" disabled="{!!setCon.hasNext}" title="Last"/>
+                
+        </apex:pageBlockButtons>        
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

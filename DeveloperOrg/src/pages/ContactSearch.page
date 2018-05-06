@@ -1,0 +1,33 @@
+<apex:page controller="ContactSeachCtrl">
+  <apex:sectionHeader title="Contact Search"/>
+  
+  <script type ='text/javascript'>
+  
+  function handleButtonClick(){
+      var searchText = document.getElementById("SeachField").value ;
+      ContactSeachCtrl.searchCustomer(searchText,renderResults);
+      
+      function renderResults(results,event){
+       var container = document.getElementById("results");
+          html = [];
+          
+          for(var i=0,j=results.length; i<j;i++){
+              html.push("<tr><td>");
+              html.push(results[i].FirstName + ' ,' + results[i].LastName);
+               html.push("</tr></td>");
+          }
+          
+          container.innerHTML = html.join("");
+      }
+  }
+  
+  </script>
+  
+  
+  <input id="SeachField" type="text" placeholder="Enter Name"/>
+  <button onclick="handleButtonClick();">Search</button>
+  
+  <table>
+      <tbody id="results"></tbody>
+  </table>
+</apex:page>

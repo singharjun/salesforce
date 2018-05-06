@@ -1,0 +1,62 @@
+<apex:page controller="ConsumptionRelatedListController" sidebar="true" showHeader="false" >     
+
+    <apex:form >                 
+
+      <!--  <apex:pageblock id="ConsumptionsList"> 
+
+          <div style="margin-left: 30%;"><apex:commandLink value="New Consumption" action="{!newConsumption}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;"/></div> 
+
+            <br/> 
+
+            <apex:pageBlockTable value="{!Consumptions}" var="cont" rendered="{!NOT(ISNULL(Consumptions))}">                 
+
+                <apex:column HeaderValue="Action" width="60"> 
+
+                    <apex:commandLink value="Edit" style="color:#015ba7;" action="{!editConsumption}" target="_parent" ><apex:param value="{!cont.id}" name="ConsumptionId"/> 
+
+                    </apex:commandLink> 
+
+                    &nbsp;|&nbsp; 
+
+                    <apex:commandLink value="Del" onclick="return confirm('Are you sure?')" style="color:#015ba7;" action="{!deleteConsumption}" target="_parent"><apex:param value="{!cont.id}" name="ConsumptionId"/> 
+
+                    </apex:commandLink> 
+
+                </apex:column> 
+
+                <apex:column headerValue="Billing Account"><apex:outputLink value="/{!cont.aura_beginner__Billing_Account__c}" target="_blank">{!cont.aura_beginner__Billing_Account__r.name}</apex:outputLink> </apex:column>               
+
+                <apex:column value="{!cont.aura_beginner__Billing_Frequency__c}"/> 
+
+                <apex:column value="{!cont.aura_beginner__Status__c}"></apex:column> 
+                             
+
+            </apex:pageBlockTable>            
+
+            <apex:outputLabel value="No records to display" rendered="{!(ISNULL(Consumptions))}" styleClass="noRowsHeader"></apex:outputLabel> 
+
+        </apex:pageblock> -->
+        
+        
+        <apex:pageBlock id="pb">
+            <apex:pageBlockTable value="{!Consumptions}" var="a">
+                <apex:column value="{!a.aura_beginner__Billing_Account__r.name}"/> 
+                <apex:column value="{!a.Billing_Frequency__c}"/>
+                <apex:column value="{!a.Status__c}"/>                
+            </apex:pageBlockTable>
+            <apex:panelGrid columns="7">
+                <apex:commandButton status="fetchStatus" reRender="pb" value="|<" action="{!first}" disabled="{!!hasPrevious}" title="First Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb" value="<" action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb" value=">" action="{!next}" disabled="{!!hasNext}" title="Next Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb" value=">|" action="{!last}" disabled="{!!hasNext}" title="Last Page"/>
+                <apex:outputText >{!(pageNumber * size)+1-size}-{!IF((pageNumber * size)>noOfRecords, noOfRecords,(pageNumber * size))} of {!noOfRecords}</apex:outputText>
+                <apex:commandButton status="fetchStatus" reRender="pb" value="Refresh" action="{!refresh}" title="Refresh Page"/>
+                <apex:outputPanel style="color:#4AA02C;font-weight:bold">
+                    <apex:actionStatus id="fetchStatus" startText="Fetching..." stopText=""/>
+                </apex:outputPanel>
+            </apex:panelGrid>
+        </apex:pageBlock>
+
+    </apex:form>  
+
+</apex:page>

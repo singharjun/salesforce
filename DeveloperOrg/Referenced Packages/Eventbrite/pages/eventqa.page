@@ -1,0 +1,4 @@
+<apex:page standardController="Campaign" extensions="EventbriteSync.EventbriteDetails" id="mainPage" tabstyle="EventbriteSync__Eventbrite__tab"> 
+<c:EventDetailsWrapper pageRecordId="
+{!recordId}" pageObjectMapType="{!objectMapType}" pageEventbriteId="{!eventbriteId}" showQAComponent="true" showTicketsComponent="false" showPromoCodesComponent="false"/>
+</apex:page>

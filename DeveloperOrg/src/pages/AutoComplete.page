@@ -1,0 +1,49 @@
+<apex:page controller="AutoCompleteDemoController">
+  
+  <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="/soap/ajax/26.0/connection.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
+    
+    <script type="text/javascript">
+        
+        var j$ = jQuery.noConflict();
+        var apexConList= [];
+        
+        <apex:repeat value="{!contactList}" var="conList">
+            apexConList.push('{!conList.name}');
+        </apex:repeat>
+        
+        var sid = '{!$Api.Session_ID}';
+        var server = "https://" + window.location.host + "/services/Soap/u/26.0";
+        sforce.connection.init(sid, server);
+        
+        var result = sforce.connection.query("select Name from Contact");
+        var records = result.getArray("records");
+        var javascriptContactList =[];
+        
+        for(i=0;i<records.length;i++){
+            javascriptContactList[i]=records[i].Name;
+        }
+        
+        
+        j$(document).ready(function(){
+        
+            j$("#apexaccountautocomplete").autocomplete({
+                source : apexConList
+            });
+            
+            j$("#sfjscontactautocomplete").autocomplete({
+                source : javascriptContactList
+            });
+        });
+        
+    </script>
+  
+  
+  <apex:form >
+      <b>Contact(This uses the Apex class to display the list)</b><input type="text" id="apexaccountautocomplete"/><br/><br/>
+      
+      <b>Contact(This uses salesforce connection)</b><input type="text" id="sfjscontactautocomplete"/><br/><br/>
+  </apex:form>
+</apex:page>

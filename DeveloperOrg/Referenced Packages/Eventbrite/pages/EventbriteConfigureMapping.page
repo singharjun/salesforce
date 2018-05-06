@@ -1,0 +1,68 @@
+<apex:page controller="EventbriteSync.EventbriteObjectMapping" tabstyle="Eventbrite__tab" id="parentPage">
+    <script>
+        //  The open text boxes force focus to be shifted to the bottom of the page on load.  This moves the user back to the top
+    	/*
+    	var previousOnload = window.onload; 
+        window.onload = function() {
+            if (previousOnload)
+                previousOnload();
+            window.scrollTo(0,0);
+            //document.getElementById('{!$CurrentPage.parameters.position}').scrollIntoView();
+        }
+        */
+    </script>
+
+    <apex:sectionHeader title="Eventbrite" subtitle="Mapping Configuration"/>
+    
+    <apex:form >
+        <apex:actionFunction name="refreshMapping" action="{!LoadMappings}" />
+        
+        <apex:pageMessages />
+        
+        <apex:PageBlock mode="maindetail">
+           
+           <apex:pageBlockButtons location="top">
+               <input type="button" onclick="window.location.href='{!$Page.EventbriteConfig}';" value="Back to Import" class="btn"/>
+           </apex:pageBlockButtons>
+           
+           <apex:pageBlockSection title="Mapping Navigation" collapsible="false" columns="1">
+                <apex:pageBLockSectionItem >
+                    
+                    <apex:outputLabel value="Which Eventbrite Object?" />
+                    
+                    <apex:outputPanel >
+                        <apex:selectList value="{!EntitySelection}" size="1" onchange="refreshMapping();">
+                            <apex:selectOptions value="{!EntityOptions}" />
+                        </apex:selectList>
+                    </apex:outputPanel>
+                    
+                </apex:pageBLockSectionItem>
+               
+               <apex:pageBlockSectionItem >
+                   <apex:outputLabel value="What Would You Like To Do?" />
+                   <apex:selectRadio value="{!ShowSection}" onchange="refreshMapping();" layout="pageDirection">
+                       <apex:selectOption itemValue="general" itemLabel="Target sObject Settings - Change Settings Related to the Target Salesforce Object" />
+                       <apex:selectOption itemValue="standard" itemLabel="Map Simple Fields - CrowdRise to Salesforce (text, numbers, etc)" />
+                       <apex:selectOption itemValue="lookups" itemLabel="Map Lookup Fields - Use CrowdRise data to populate Lookup Fields" />
+                       <apex:selectOption itemValue="personLookups" itemLabel="Map Lead/Contact Lookup Fields - Use CrowdRise donor data to populate Lead/Contact Lookup Fields" />
+                       <apex:selectOption itemValue="static" itemLabel="Map Static Values - Always populate the same fields with the same values (Statuses, Checkboxes, Etc.)" />
+                       <apex:selectOption itemValue="questions" itemLabel="Map Question Answers - Map Attendee Question Answers to Various Objects" />
+
+                   </apex:selectRadio>
+               </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+           
+        </apex:PageBlock>
+        
+        <c:EventbriteObjectMapping EntityName="{!EntitySelection}" DisplaySection="{!ShowSection}" />
+            
+    </apex:form>
+
+    <script>
+        // Collapse all collapsible PageBlockSections after the page renders
+        var elements = document.getElementsByName('Need Help?');
+        for (i=0; i<elements.length; i++) {
+            twistSection(elements[i]);
+        }
+    </script>
+</apex:page>

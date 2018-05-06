@@ -1,0 +1,5 @@
+<apex:page id="mainPage" tabstyle="Eventbrite__tab">  
+    <apex:sectionHeader title="Eventbrite" subtitle="{!$Label.eventbritesync__Event_Details}" rendered="{!$CurrentPage.parameters.mode != ''}"/>
+   <c:EventbriteTickets pageRecordId="{!$CurrentPage.parameters.id}" pageEventbriteId="{!$CurrentPage.parameters.ebId}"/>
+    <c:EventbritePromoCodes id="pageCodesComponent" pageRecordId="{!$CurrentPage.parameters.id}" pageEventbriteId="{!$CurrentPage.parameters.ebId}"/>
+</apex:page>

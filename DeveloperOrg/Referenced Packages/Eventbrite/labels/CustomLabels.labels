@@ -1,0 +1,3101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AM</fullName>
+        <categories>EventbriteConfig, PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AM</shortDescription>
+        <value>AM</value>
+    </labels>
+    <labels>
+        <fullName>A_one_time_authentication</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A one time authentication</shortDescription>
+        <value>A one time authentication between Salesforce and Eventbrite must be performed before using this app. Once authenticated, you will be able to fully configure details of the synchronization from this page.</value>
+    </labels>
+    <labels>
+        <fullName>A_sync_is_in_progress</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A sync is in progress</shortDescription>
+        <value>A sync is in progress, please wait for it to complete before saving mapping changes.</value>
+    </labels>
+    <labels>
+        <fullName>A_system_error_has_occurred</fullName>
+        <categories>PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A system error has occurred</shortDescription>
+        <value>A system error has occurred, please try again. If this problem persists please check the integration log for more details.</value>
+    </labels>
+    <labels>
+        <fullName>Access_Code</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Access Code</shortDescription>
+        <value>Access Code</value>
+    </labels>
+    <labels>
+        <fullName>Access_Code_colon</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Access_Code:</shortDescription>
+        <value>Access Code:</value>
+    </labels>
+    <labels>
+        <fullName>Access_code_successfully_created</fullName>
+        <categories>PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Access code successfully created</shortDescription>
+        <value>Access code successfully created.</value>
+    </labels>
+    <labels>
+        <fullName>Add_Contact</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Contact</shortDescription>
+        <value>Add Contact</value>
+    </labels>
+    <labels>
+        <fullName>Add_Lead</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Lead</shortDescription>
+        <value>Add Lead</value>
+    </labels>
+    <labels>
+        <fullName>Advanced_Mapping</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Advanced Mapping</shortDescription>
+        <value>Advanced Mapping</value>
+    </labels>
+    <labels>
+        <fullName>Advanced_Object_Field_Mapping</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Advanced Object &amp; Field Mapping</shortDescription>
+        <value>Advanced Object &amp; Field Mapping</value>
+    </labels>
+    <labels>
+        <fullName>Advanced_users_can_map_Eventbrite_objects_and_fields</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Advanced users can map Eventbrite objects and fields</shortDescription>
+        <value>Advanced users can map Eventbrite objects and fields to custom and standard Salesforce objects and fields.
+Please carefully consider any modification of the default mappings as these changes may cause sync issues.</value>
+    </labels>
+    <labels>
+        <fullName>All_unsaved_changes_will_be_cancelled</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All unsaved changes will be cancelled</shortDescription>
+        <value>All unsaved changes will be cancelled. Continue?</value>
+    </labels>
+    <labels>
+        <fullName>Allow_Overwrite</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Allow Overwrite</shortDescription>
+        <value>Allow Overwrite</value>
+    </labels>
+    <labels>
+        <fullName>Always_Retain</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Always Retain</shortDescription>
+        <value>Always Retain</value>
+    </labels>
+    <labels>
+        <fullName>Amount</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Amount</shortDescription>
+        <value>Amount</value>
+    </labels>
+    <labels>
+        <fullName>Amount_Off</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Amount Off</shortDescription>
+        <value>Amount Off:</value>
+    </labels>
+    <labels>
+        <fullName>An_editable_mapping_of_Eventbrite_objects</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>An editable mapping of Eventbrite objects</shortDescription>
+        <value>An editable mapping of Eventbrite objects to Salesforce objects is provided here:</value>
+    </labels>
+    <labels>
+        <fullName>An_error_has_occurred</fullName>
+        <categories>PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>An error has occurred</shortDescription>
+        <value>An error has occurred:</value>
+    </labels>
+    <labels>
+        <fullName>Answer</fullName>
+        <categories>QuestionAnswersComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer</shortDescription>
+        <value>Answer</value>
+    </labels>
+    <labels>
+        <fullName>Answer_Answer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer Answer</shortDescription>
+        <value>Answer Answer</value>
+    </labels>
+    <labels>
+        <fullName>Answer_Attendee_Detail_ID</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer Attendee Detail ID</shortDescription>
+        <value>Answer Attendee Detail ID</value>
+    </labels>
+    <labels>
+        <fullName>Answer_Attendee_Detail_Lookup</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer Attendee Detail Lookup</shortDescription>
+        <value>Answer Attendee Detail Lookup</value>
+    </labels>
+    <labels>
+        <fullName>Answer_ID</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer ID</shortDescription>
+        <value>Answer ID</value>
+    </labels>
+    <labels>
+        <fullName>Answer_Question</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer Question</shortDescription>
+        <value>Answer Question</value>
+    </labels>
+    <labels>
+        <fullName>Answers</fullName>
+        <categories>Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answers</shortDescription>
+        <value>Answers</value>
+    </labels>
+    <labels>
+        <fullName>Answers_cannot_be_displayed</fullName>
+        <categories>QuestionAnswersComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answers cannot be displayed</shortDescription>
+        <value>Answers cannot be displayed: this record was created from a sync with configuration mapping settings differing from the current set up.</value>
+    </labels>
+    <labels>
+        <fullName>Are_you_sure</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure?</shortDescription>
+        <value>Are you sure?</value>
+    </labels>
+    <labels>
+        <fullName>Are_you_sure_you_want_to_delete_this_static_value</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you want to delete this static value</shortDescription>
+        <value>Are you sure you want to delete this static value?</value>
+    </labels>
+    <labels>
+        <fullName>Are_you_sure_you_want_to_interrupt_the_current_sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you want to interrupt the current sync?</shortDescription>
+        <value>Are you sure you want to interrupt the current sync?</value>
+    </labels>
+    <labels>
+        <fullName>Are_you_sure_you_want_to_save_these_changes</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you want to save these changes</shortDescription>
+        <value>Are you sure you want to save these changes?</value>
+    </labels>
+    <labels>
+        <fullName>Associate_Attendees_with_Events</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Associate Attendees with Events</shortDescription>
+        <value>Associate Attendees with Events</value>
+    </labels>
+    <labels>
+        <fullName>Attach_Buyer_as_Contact_Role</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attach Buyer as Contact Role</shortDescription>
+        <value>Attach Buyer as Contact Role</value>
+    </labels>
+    <labels>
+        <fullName>Attendee</fullName>
+        <categories>QuestionAnswersComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee</shortDescription>
+        <value>Attendee</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Age</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Age</shortDescription>
+        <value>Attendee Age</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Barcode_Status</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Barcode Status</shortDescription>
+        <value>Attendee Barcode Status</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Birthdate</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Birthdate</shortDescription>
+        <value>Attendee Birthdate</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Blog</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Blog</shortDescription>
+        <value>Attendee Blog</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Cell_Phone</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Cell Phone</shortDescription>
+        <value>Attendee Cell Phone</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Company</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Company</shortDescription>
+        <value>Attendee Company</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Cost</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Cost</shortDescription>
+        <value>Attendee Cost</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Detail</fullName>
+        <categories>Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Detail</shortDescription>
+        <value>Attendee Detail</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Email</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Email</shortDescription>
+        <value>Attendee Email</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Event</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Event</shortDescription>
+        <value>Attendee Event</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Eventbrite_Fee_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Eventbrite Fee Amount</shortDescription>
+        <value>Attendee Eventbrite Fee Amount</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_First_Name</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee First Name</shortDescription>
+        <value>Attendee First Name</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Gender</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Gender</shortDescription>
+        <value>Attendee Gender</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Gross_Cost</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Gross Cost</shortDescription>
+        <value>Attendee Gross Cost</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_City</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home City</shortDescription>
+        <value>Attendee Home City</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_Country</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home Country</shortDescription>
+        <value>Attendee Home Country</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home Phone</shortDescription>
+        <value>Attendee Home Phone</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_Postal_Code</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home Postal Code</shortDescription>
+        <value>Attendee Home Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_State_Region</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home State / Region</shortDescription>
+        <value>Attendee Home State / Region</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_Street</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home Street</shortDescription>
+        <value>Attendee Home Street Merged</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_Street_1</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home Street 1</shortDescription>
+        <value>Attendee Home Street 1</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Home_Street_2</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Home Street 2</shortDescription>
+        <value>Attendee Home Street 2</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Id</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Id</shortDescription>
+        <value>Attendee Id</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Last_Name</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Last Name</shortDescription>
+        <value>Attendee Last Name</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Payment_Fee_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Payment Fee Amount</shortDescription>
+        <value>Attendee Payment Fee Amount</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Prefix</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Prefix</shortDescription>
+        <value>Attendee Prefix</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Profile</fullName>
+        <categories>Field Map, Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Profile</shortDescription>
+        <value>Attendee Profile</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Shipping_City</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Shipping City</shortDescription>
+        <value>Attendee Shipping City</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Shipping_Country</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Shipping Country</shortDescription>
+        <value>Attendee Shipping Country</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Shipping_Postal_Code</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Shipping Postal Code</shortDescription>
+        <value>Attendee Shipping Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Shipping_State_Region</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Shipping State / Region</shortDescription>
+        <value>Attendee Shipping State / Region</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Shipping_Street</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Shipping Street</shortDescription>
+        <value>Attendee Shipping Street Merged</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Shipping_Street_1</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Shipping Street 1</shortDescription>
+        <value>Attendee Shipping Street 1</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Shipping_Street_2</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Shipping Street 2</shortDescription>
+        <value>Attendee Shipping Street 2</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Status</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Status</shortDescription>
+        <value>Attendee Status</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Suffix</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Suffix</shortDescription>
+        <value>Attendee Suffix</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Tax_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Tax Amount</shortDescription>
+        <value>Attendee Tax Amount</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Ticket_Quantity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Ticket Quantity</shortDescription>
+        <value>Attendee Ticket Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Ticket_Type</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Ticket Type</shortDescription>
+        <value>Attendee Ticket Type</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Ticket_Type_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Ticket Type Name</shortDescription>
+        <value>Attendee Ticket Type Name</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Title</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Title</shortDescription>
+        <value>Attendee Title</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Website</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Website</shortDescription>
+        <value>Attendee Website</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_City</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work City</shortDescription>
+        <value>Attendee Work City</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_Country</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work Country</shortDescription>
+        <value>Attendee Work Country</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work Phone</shortDescription>
+        <value>Attendee Work Phone</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_Postal_Code</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work Postal Code</shortDescription>
+        <value>Attendee Work Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_State_Region</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work State / Region</shortDescription>
+        <value>Attendee Work State / Region</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_Street</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work Street</shortDescription>
+        <value>Attendee Work Street Merged</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_Street_1</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work Street 1</shortDescription>
+        <value>Attendee Work Street 1</value>
+    </labels>
+    <labels>
+        <fullName>Attendee_Work_Street_2</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attendee Work Street 2</shortDescription>
+        <value>Attendee Work Street 2</value>
+    </labels>
+    <labels>
+        <fullName>Authenticate</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authenticate</shortDescription>
+        <value>Authenticate</value>
+    </labels>
+    <labels>
+        <fullName>Authenticated</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authenticated</shortDescription>
+        <value>Authenticated</value>
+    </labels>
+    <labels>
+        <fullName>Authenticated_as</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authenticated as</shortDescription>
+        <value>Authenticated as</value>
+    </labels>
+    <labels>
+        <fullName>Authentication</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authentication</shortDescription>
+        <value>Authentication</value>
+    </labels>
+    <labels>
+        <fullName>Authentication_Exception</fullName>
+        <categories>IntegrationClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authentication Exception</shortDescription>
+        <value>Authentication Exception:</value>
+    </labels>
+    <labels>
+        <fullName>Authentication_was_successful</fullName>
+        <categories>ConfigClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authentication was successful</shortDescription>
+        <value>Authentication was successful</value>
+    </labels>
+    <labels>
+        <fullName>Authentication_was_successful_but</fullName>
+        <categories>ConfigClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authentication was successful but</shortDescription>
+        <value>Authentication was successful but the Eventbrite User Id could not be retrieved. Please review the Integration Log.</value>
+    </labels>
+    <labels>
+        <fullName>Available</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Available</shortDescription>
+        <value>Available</value>
+    </labels>
+    <labels>
+        <fullName>Back</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Buyer</fullName>
+        <categories>Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Buyer</shortDescription>
+        <value>Buyer</value>
+    </labels>
+    <labels>
+        <fullName>Buyer_Detail</fullName>
+        <categories>Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Buyer Detail</shortDescription>
+        <value>Buyer Detail</value>
+    </labels>
+    <labels>
+        <fullName>Buyer_Detail_Attendee</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Buyer Detail Attendee</shortDescription>
+        <value>Buyer Detail Attendee</value>
+    </labels>
+    <labels>
+        <fullName>Buyer_Detail_Order</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Buyer Detail Order</shortDescription>
+        <value>Buyer Detail Order</value>
+    </labels>
+    <labels>
+        <fullName>Buyer_Email</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Buyer Email</shortDescription>
+        <value>Buyer Email</value>
+    </labels>
+    <labels>
+        <fullName>Buyer_First_Name</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Buyer First Name</shortDescription>
+        <value>Buyer First Name</value>
+    </labels>
+    <labels>
+        <fullName>Buyer_Last_Name</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Buyer Last Name</shortDescription>
+        <value>Buyer Last Name</value>
+    </labels>
+    <labels>
+        <fullName>Callout_Exception</fullName>
+        <categories>IntegrationClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Callout Exception</shortDescription>
+        <value>Callout Exception:</value>
+    </labels>
+    <labels>
+        <fullName>Callout_could_not_be_perfomed</fullName>
+        <categories>IntegrationClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Callout could not be perfomed</shortDescription>
+        <value>Callout could not be perfomed -- exceeded daily callout limit</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Cancel_Sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel Sync</shortDescription>
+        <value>Cancel Sync</value>
+    </labels>
+    <labels>
+        <fullName>Canceled</fullName>
+        <categories>EventbriteConfig, SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Canceled</shortDescription>
+        <value>Canceled</value>
+    </labels>
+    <labels>
+        <fullName>Cancelled</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancelled</shortDescription>
+        <value>Cancelled</value>
+    </labels>
+    <labels>
+        <fullName>Capacity</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Capacity</shortDescription>
+        <value>Capacity</value>
+    </labels>
+    <labels>
+        <fullName>Change</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Change</shortDescription>
+        <value>Change</value>
+    </labels>
+    <labels>
+        <fullName>Changing_the_mapped_object_will_clear_out</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Changing the mapped object will clear out</shortDescription>
+        <value>Changing the mapped object will clear out all field mappings. Press OK to continue or Cancel to go back.</value>
+    </labels>
+    <labels>
+        <fullName>Click_the_last_sync_date_to_view_the_sync_status</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Click the last sync date to view the sync status</shortDescription>
+        <value>Click the last sync date to view the sync status</value>
+    </labels>
+    <labels>
+        <fullName>Code</fullName>
+        <categories>ConfigClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Code</shortDescription>
+        <value>Code</value>
+    </labels>
+    <labels>
+        <fullName>Complete</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Complete</shortDescription>
+        <value>Complete</value>
+    </labels>
+    <labels>
+        <fullName>Completed</fullName>
+        <categories>EventbriteConfig, SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Completed</shortDescription>
+        <value>Completed</value>
+    </labels>
+    <labels>
+        <fullName>Configuration</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Configuration</shortDescription>
+        <value>Configuration</value>
+    </labels>
+    <labels>
+        <fullName>ContactLabel</fullName>
+        <categories>SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ContactLabel</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Lists</fullName>
+        <categories>EventbriteConfig, EventbriteContactLists</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact Lists</shortDescription>
+        <value>Contact Lists</value>
+    </labels>
+    <labels>
+        <fullName>Contact_successfully_added</fullName>
+        <categories>ContactListClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact successfully added</shortDescription>
+        <value>Contact successfully added.</value>
+    </labels>
+    <labels>
+        <fullName>Cost</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cost</shortDescription>
+        <value>Cost</value>
+    </labels>
+    <labels>
+        <fullName>Could_not_find</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Could not find</shortDescription>
+        <value>Could not find lookup field to Target Salesforce Object. Please create a lookup field on the &apos;Order Ticket Type&apos; Salesforce Object to the desired target object and try again. If you do not wish to use Order Ticket Types, uncheck Ticket Types Enabled to disable this feature.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Attendees_As</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Attendees As</shortDescription>
+        <value>Create Attendees As</value>
+    </labels>
+    <labels>
+        <fullName>Create_Attendees_as_either_Contacts_or_Leads</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Attendees as either Contacts or Leads</shortDescription>
+        <value>Create Attendees as either Contacts or Leads in Salesforce during sync.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Salesforce_records_of_a_certain_record_type</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Salesforce records of a certain record type</shortDescription>
+        <value>Create Salesforce records of a certain record type when importing from Eventbrite.</value>
+    </labels>
+    <labels>
+        <fullName>Create_more_or_less_logs</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create more or less logs</shortDescription>
+        <value>Create more or less logs (in Integration Logs) when interacting with Eventbrite</value>
+    </labels>
+    <labels>
+        <fullName>CustomFilter</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom Filter</shortDescription>
+        <value>Custom Filter</value>
+    </labels>
+    <labels>
+        <fullName>Custom_Question</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom Question</shortDescription>
+        <value>Custom Question</value>
+    </labels>
+    <labels>
+        <fullName>Custom_Question_Mapping</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom Question Mapping</shortDescription>
+        <value>Custom Question Mapping</value>
+    </labels>
+    <labels>
+        <fullName>Custom_Questions_as_related_record</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom Questions as related record</shortDescription>
+        <value>Custom Questions as related record</value>
+    </labels>
+    <labels>
+        <fullName>Daily_Sync_Time</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Daily Sync Time</shortDescription>
+        <value>Daily Sync Time</value>
+    </labels>
+    <labels>
+        <fullName>Debug</fullName>
+        <categories>ConfigClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Debug</shortDescription>
+        <value>Debug</value>
+    </labels>
+    <labels>
+        <fullName>Declare_static_fixed_values</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Declare static fixed values</shortDescription>
+        <value>Declare static (fixed) values to copy to fields in Salesforce when records are imported from Eventbrite</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Description</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Code</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount Code</shortDescription>
+        <value>Discount Code</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Code_colon</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount Code:</shortDescription>
+        <value>Discount Code:</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Codes</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount Codes</shortDescription>
+        <value>Discount Codes</value>
+    </labels>
+    <labels>
+        <fullName>Discount_code_successfully_created</fullName>
+        <categories>PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount code successfully created</shortDescription>
+        <value>Discount code successfully created.</value>
+    </labels>
+    <labels>
+        <fullName>Do_you_wish_to_have_the_ticket_buyer</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Do you wish to have the ticket buyer</shortDescription>
+        <value>Do you wish to have the ticket buyer linked to an opportunity by a Contact Role record?</value>
+    </labels>
+    <labels>
+        <fullName>Do_you_wish_to_override_the_exsiting_contacts</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Do you wish to override the exsiting contacts</shortDescription>
+        <value>Should syncs only insert Eventbrite Buyer and Attendee information, only update matched records, or both insert and update records in Salesforce?</value>
+    </labels>
+    <labels>
+        <fullName>Donation</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Donation</shortDescription>
+        <value>Donation</value>
+    </labels>
+    <labels>
+        <fullName>Draft</fullName>
+        <categories>EventbriteConfig, SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Draft</shortDescription>
+        <value>Draft</value>
+    </labels>
+    <labels>
+        <fullName>Edit</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Authentication</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Authentication</shortDescription>
+        <value>Edit Authentication</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Fields</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Fields</shortDescription>
+        <value>Edit Fields</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Object</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Object</shortDescription>
+        <value>Edit Object</value>
+    </labels>
+    <labels>
+        <fullName>Email</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>Enable_Multi_Currency_Support</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enable Multi-Currency Support</shortDescription>
+        <value>Enable Multi-Currency Support</value>
+    </labels>
+    <labels>
+        <fullName>Enable_Scheduled_Sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enable Scheduled Sync</shortDescription>
+        <value>Enable Scheduled Sync</value>
+    </labels>
+    <labels>
+        <fullName>Enabled</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enabled</shortDescription>
+        <value>Enabled</value>
+    </labels>
+    <labels>
+        <fullName>Enabling_Ticket_Types</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enabling Ticket Types</shortDescription>
+        <value>Enabling Ticket Types requires a lookup field on the Salesforce Order Ticket Type object to the object mapped to Eventbrite Orders.</value>
+    </labels>
+    <labels>
+        <fullName>Ended</fullName>
+        <categories>EventbriteConfig, SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ended</shortDescription>
+        <value>Ended</value>
+    </labels>
+    <labels>
+        <fullName>Ends</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ends</shortDescription>
+        <value>Ends</value>
+    </labels>
+    <labels>
+        <fullName>Ends_colon</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ends:</shortDescription>
+        <value>End:</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <categories>ConfigClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>Error_on_field_s</fullName>
+        <categories>DataSyncClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error on field(s)</shortDescription>
+        <value>Error on field(s):</value>
+    </labels>
+    <labels>
+        <fullName>Event</fullName>
+        <categories>Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event</shortDescription>
+        <value>Event</value>
+    </labels>
+    <labels>
+        <fullName>Event_Capacity</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Capacity</shortDescription>
+        <value>Event Capacity</value>
+    </labels>
+    <labels>
+        <fullName>Event_Created</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Created</shortDescription>
+        <value>Event Created</value>
+    </labels>
+    <labels>
+        <fullName>Event_Description</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Description</shortDescription>
+        <value>Event Description</value>
+    </labels>
+    <labels>
+        <fullName>Event_Details</fullName>
+        <categories>PromoCodesExpandedPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Details</shortDescription>
+        <value>Event Details</value>
+    </labels>
+    <labels>
+        <fullName>Event_End_Time</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event End Time</shortDescription>
+        <value>Event End Time</value>
+    </labels>
+    <labels>
+        <fullName>Event_Id</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Id</shortDescription>
+        <value>Event Id</value>
+    </labels>
+    <labels>
+        <fullName>Event_Name</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Name</shortDescription>
+        <value>Event Name</value>
+    </labels>
+    <labels>
+        <fullName>Event_Organizer_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Organizer Name</shortDescription>
+        <value>Event Organizer Name</value>
+    </labels>
+    <labels>
+        <fullName>Event_Organizer_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Organizer URL</shortDescription>
+        <value>Event Organizer URL</value>
+    </labels>
+    <labels>
+        <fullName>Event_Start_Time</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Start Time</shortDescription>
+        <value>Event Start Time</value>
+    </labels>
+    <labels>
+        <fullName>Event_Status</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event Status</shortDescription>
+        <value>Event Status</value>
+    </labels>
+    <labels>
+        <fullName>Event_URL</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event URL</shortDescription>
+        <value>Event URL</value>
+    </labels>
+    <labels>
+        <fullName>Eventbrite_Custom_Questions</fullName>
+        <categories>QuestionAnswersComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite Custom Questions</shortDescription>
+        <value>Eventbrite Custom Questions</value>
+    </labels>
+    <labels>
+        <fullName>Eventbrite_Mapping</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite Mapping</shortDescription>
+        <value>Eventbrite Mapping</value>
+    </labels>
+    <labels>
+        <fullName>Eventbrite_Mappings</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite Mappings</shortDescription>
+        <value>Eventbrite Mappings</value>
+    </labels>
+    <labels>
+        <fullName>Eventbrite_Source_Field</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite Source Field</shortDescription>
+        <value>Eventbrite Source Field</value>
+    </labels>
+    <labels>
+        <fullName>Eventbrite_Sync_Status</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite Sync Status</shortDescription>
+        <value>Eventbrite Sync Status</value>
+    </labels>
+    <labels>
+        <fullName>Eventbrite_Sync_allows</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite Sync allows</shortDescription>
+        <value>Eventbrite Sync allows you to dynamically synchronize your data from Eventbrite into your Salesforce organization. To get the best experience, you are provided with several ways of configuring the synchronization to meet your needs.
+Please consider carefully before making changes to these organization-wide synchronization settings.</value>
+    </labels>
+    <labels>
+        <fullName>Eventbrite_Synchronization</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite Synchronization</shortDescription>
+        <value>Eventbrite Synchronization</value>
+    </labels>
+    <labels>
+        <fullName>Events_Sync_Error</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Events Sync Error</shortDescription>
+        <value>Events Sync Error :</value>
+    </labels>
+    <labels>
+        <fullName>Fee</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Fee</shortDescription>
+        <value>Fee</value>
+    </labels>
+    <labels>
+        <fullName>Field_Mapping_Configuration</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Field Mapping Configuration</shortDescription>
+        <value>Field Mapping Configuration</value>
+    </labels>
+    <labels>
+        <fullName>Fields_denoted_with_a_red_asterisk</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Fields denoted with a red asterisk</shortDescription>
+        <value>-Fields denoted with a red asterisk</value>
+    </labels>
+    <labels>
+        <fullName>Filter</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
+    </labels>
+    <labels>
+        <fullName>Filter_Events</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Filter Events</shortDescription>
+        <value>Filter Events</value>
+    </labels>
+    <labels>
+        <fullName>First_Name</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Name</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>Free</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Free</shortDescription>
+        <value>Free</value>
+    </labels>
+    <labels>
+        <fullName>Go</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go</shortDescription>
+        <value>Go</value>
+    </labels>
+    <labels>
+        <fullName>Go_Back</fullName>
+        <categories>SyncSingleEventPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go Back</shortDescription>
+        <value>Go Back</value>
+    </labels>
+    <labels>
+        <fullName>Go_to</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go to</shortDescription>
+        <value>Go to:</value>
+    </labels>
+    <labels>
+        <fullName>Go_to_Eventbrite_Config</fullName>
+        <categories>SyncSingleEventPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go to Eventbrite Config</shortDescription>
+        <value>Go to Eventbrite Config</value>
+    </labels>
+    <labels>
+        <fullName>Go_to_List</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go to List</shortDescription>
+        <value>Go to List</value>
+    </labels>
+    <labels>
+        <fullName>Go_to_Mapping</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go to Mapping</shortDescription>
+        <value>Go to Mapping</value>
+    </labels>
+    <labels>
+        <fullName>Help_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Help Text</shortDescription>
+        <value>Map custom questions from Eventbrite to fields in Salesforce. When records are imported from Eventbrite, an event&apos;s attendee&apos;s answers will copy to the Target Salesforce Field.</value>
+    </labels>
+    <labels>
+        <fullName>IF</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IF</shortDescription>
+        <value>IF</value>
+    </labels>
+    <labels>
+        <fullName>In_Progress</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>In Progress</shortDescription>
+        <value>In Progress</value>
+    </labels>
+    <labels>
+        <fullName>Initiate_a_sync_from_Eventbrite</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Initiate a sync from Eventbrite</shortDescription>
+        <value>Initiate a sync from Eventbrite. You will be unable to make changes to any configurations while a sync is in progress.</value>
+    </labels>
+    <labels>
+        <fullName>Initiate_an_import_of_Eventbrite</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Initiate an import of Eventbrite</shortDescription>
+        <value>Initiate an import of Eventbrite Events, Orders, Buyers, and Attendees into Salesforce based on your custom field mappings.</value>
+    </labels>
+    <labels>
+        <fullName>Initiate_sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Initiate sync?</shortDescription>
+        <value>Initiate sync?</value>
+    </labels>
+    <labels>
+        <fullName>Insert_Only</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Insert Only</shortDescription>
+        <value>Insert Only</value>
+    </labels>
+    <labels>
+        <fullName>Insert_Update</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Insert Update</shortDescription>
+        <value>Insert / Update</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Log</fullName>
+        <categories>LogPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Integration Log</shortDescription>
+        <value>Integration Log</value>
+    </labels>
+    <labels>
+        <fullName>Last_Name</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Name</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>Last_Sync_Date</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Sync Date</shortDescription>
+        <value>Last Sync Date</value>
+    </labels>
+    <labels>
+        <fullName>LeadLabel</fullName>
+        <categories>SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LeadLabel</shortDescription>
+        <value>Lead</value>
+    </labels>
+    <labels>
+        <fullName>Limit_which_Eventbrite_records</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Limit which Eventbrite records</shortDescription>
+        <value>Limit which Eventbrite records will be created in Salesforce with a filter.</value>
+    </labels>
+    <labels>
+        <fullName>Live</fullName>
+        <categories>EventbriteConfig, SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live</shortDescription>
+        <value>Live</value>
+    </labels>
+    <labels>
+        <fullName>Load_from_Eventbrite</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Load from Eventbrite</shortDescription>
+        <value>Load from Eventbrite</value>
+    </labels>
+    <labels>
+        <fullName>Loading_Questions</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loading Questions</shortDescription>
+        <value>Loading questions.. This may take a few minutes if you have a large number of events. Please reload the page to see changes.</value>
+    </labels>
+    <labels>
+        <fullName>Log_Level</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Log Level</shortDescription>
+        <value>Log Level</value>
+    </labels>
+    <labels>
+        <fullName>Lookup</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Lookup</shortDescription>
+        <value>Lookup</value>
+    </labels>
+    <labels>
+        <fullName>Map_custom_questions_from_Eventbrite_to_fields</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Map custom questions from Eventbrite to fields</shortDescription>
+        <value>Map custom questions from Eventbrite to fields in Salesforce. When records are imported from Eventbrite, an event&apos;s attendee&apos;s answers will copy to the Target Salesforce Field.</value>
+    </labels>
+    <labels>
+        <fullName>Map_fields_from_Eventbrite_to_copy_to_fields</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Map fields from Eventbrite to copy to fields</shortDescription>
+        <value>Map fields from Eventbrite to copy to fields in Salesforce when records are imported from Eventbrite</value>
+    </labels>
+    <labels>
+        <fullName>Mappings</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mappings</shortDescription>
+        <value>Mappings.</value>
+    </labels>
+    <labels>
+        <fullName>Max_Number_of_Logs_to_Retain</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Max Number of Logs to Retain</shortDescription>
+        <value>Max Number of Logs to Retain</value>
+    </labels>
+    <labels>
+        <fullName>Max_Number_of_Logs_to_Retain_Help</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Max Number of Logs to RetainHelp</shortDescription>
+        <value>Maximum number of logs to retain, after which older logs will be deleted permanently. This value must be a number without decimals or commas.</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>Name_colon</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name:</shortDescription>
+        <value>Name:</value>
+    </labels>
+    <labels>
+        <fullName>Namespace</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Namespace</shortDescription>
+        <value>EventbriteSync</value>
+    </labels>
+    <labels>
+        <fullName>Never</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Never</shortDescription>
+        <value>Never</value>
+    </labels>
+    <labels>
+        <fullName>New</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>New_Access_Code</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Access Code</shortDescription>
+        <value>New Access Code</value>
+    </labels>
+    <labels>
+        <fullName>New_Contact_List</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Contact List</shortDescription>
+        <value>New Contact List</value>
+    </labels>
+    <labels>
+        <fullName>New_Custom_Question_and_eventbrite_mappings</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Custom Question and eventbrite mappings</shortDescription>
+        <value>Target Salesforce Field has both New Custom Question and Eventbrite mappings :</value>
+    </labels>
+    <labels>
+        <fullName>New_Custom_Question_and_static_mappings</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Custom Question and static mappings</shortDescription>
+        <value>Target Salesforce Field has both New Custom Question and Static  mappings :</value>
+    </labels>
+    <labels>
+        <fullName>New_Discount</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Discount</shortDescription>
+        <value>New Discount</value>
+    </labels>
+    <labels>
+        <fullName>New_Static_and_Custom_Question_Mappings</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Static and Custom Question Mappings</shortDescription>
+        <value>Target Salesforce Field has both New Static and Custom Question mappings :</value>
+    </labels>
+    <labels>
+        <fullName>New_Static_and_Eventbrite_Mappings</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Static and Eventbrite Mappings</shortDescription>
+        <value>Target Salesforce Field has both New Static and Eventbrite mappings :</value>
+    </labels>
+    <labels>
+        <fullName>No</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>No_Answers_associated</fullName>
+        <categories>QuestionAnswersComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Answers associated</shortDescription>
+        <value>No Answers associated with this record.</value>
+    </labels>
+    <labels>
+        <fullName>No_Available_Tickets</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Available Tickets</shortDescription>
+        <value>No Available Tickets</value>
+    </labels>
+    <labels>
+        <fullName>No_Custom_Questions_Mappings_have_been_set</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Custom Questions Mappings have been set</shortDescription>
+        <value>No Custom Questions Mappings have been set.</value>
+    </labels>
+    <labels>
+        <fullName>No_Limit</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Limit</shortDescription>
+        <value>No Limit</value>
+    </labels>
+    <labels>
+        <fullName>No_Static_Mappings_have_been_set</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Static Mappings have been set</shortDescription>
+        <value>No Static Mappings have been set.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Authenticated</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not Authenticated</shortDescription>
+        <value>Not Authenticated</value>
+    </labels>
+    <labels>
+        <fullName>Number</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Number</shortDescription>
+        <value>Number</value>
+    </labels>
+    <labels>
+        <fullName>Offers_Apply_to</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Offers Apply to</shortDescription>
+        <value>Offers Apply to:</value>
+    </labels>
+    <labels>
+        <fullName>Operation</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Operation</shortDescription>
+        <value>Operation</value>
+    </labels>
+    <labels>
+        <fullName>Optional_filters_may_be_set_to_limit</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Optional filters may be set to limit</shortDescription>
+        <value>-Optional filters may be set to limit which Eventbrite records are imported</value>
+    </labels>
+    <labels>
+        <fullName>Optionally_choose_a_record_type_of_the_target_Object</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Optionally choose a record type of the target Object</shortDescription>
+        <value>-Optionally choose a record type of the target Object wherein records from a Eventbrite sync will be created</value>
+    </labels>
+    <labels>
+        <fullName>Order</fullName>
+        <categories>Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order</shortDescription>
+        <value>Order</value>
+    </labels>
+    <labels>
+        <fullName>Order_Amount</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Amount</shortDescription>
+        <value>Order Amount</value>
+    </labels>
+    <labels>
+        <fullName>Order_Buyer</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Buyer</shortDescription>
+        <value>Order Buyer</value>
+    </labels>
+    <labels>
+        <fullName>Order_Changed</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Changed</shortDescription>
+        <value>Order Changed</value>
+    </labels>
+    <labels>
+        <fullName>Order_Created</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Created</shortDescription>
+        <value>Order Created</value>
+    </labels>
+    <labels>
+        <fullName>Order_Currency</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Currency</shortDescription>
+        <value>Order Currency</value>
+    </labels>
+    <labels>
+        <fullName>Order_Currency_mapping_is_only_available_in_Salesforce_environments_where</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Currency mapping is only available in Salesforce environments where</shortDescription>
+        <value>Order Currency mapping is only available in Salesforce environments where &quot;Multiple Currencies&quot; has been enabled. Please see Salesforce help for more information on how to enable and configure Multiple Currencies.</value>
+    </labels>
+    <labels>
+        <fullName>Order_Event</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Event</shortDescription>
+        <value>Order Event</value>
+    </labels>
+    <labels>
+        <fullName>Order_Eventbrite_Fee_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Eventbrite Fee Amount</shortDescription>
+        <value>Order Eventbrite Fee Amount</value>
+    </labels>
+    <labels>
+        <fullName>Order_Gross_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Gross Amount</shortDescription>
+        <value>Order Gross Amount</value>
+    </labels>
+    <labels>
+        <fullName>Order_Id</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Id</shortDescription>
+        <value>Order Id</value>
+    </labels>
+    <labels>
+        <fullName>Order_Name</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Name</shortDescription>
+        <value>Order Name</value>
+    </labels>
+    <labels>
+        <fullName>Order_Payment_Fee_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Payment Fee Amount</shortDescription>
+        <value>Order Payment Fee Amount</value>
+    </labels>
+    <labels>
+        <fullName>Order_Quantity</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Quantity</shortDescription>
+        <value>Order Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Order_Status</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Status</shortDescription>
+        <value>Order Status</value>
+    </labels>
+    <labels>
+        <fullName>Order_Tax_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Tax Amount</shortDescription>
+        <value>Order Tax Amount</value>
+    </labels>
+    <labels>
+        <fullName>Orders_Sync_Error</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Orders Sync Error</shortDescription>
+        <value>Orders Sync Error :</value>
+    </labels>
+    <labels>
+        <fullName>Override_Contacts_and_Leads</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Override Contacts and Leads</shortDescription>
+        <value>Sync behavior on Contacts and Leads</value>
+    </labels>
+    <labels>
+        <fullName>PM</fullName>
+        <categories>EventbriteConfig, PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PM</shortDescription>
+        <value>PM</value>
+    </labels>
+    <labels>
+        <fullName>Page</fullName>
+        <categories>e</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Page</shortDescription>
+        <value>Page</value>
+    </labels>
+    <labels>
+        <fullName>Paid_Only</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Paid Only</shortDescription>
+        <value>Paid Only</value>
+    </labels>
+    <labels>
+        <fullName>Paid_and_Free</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Paid and Free</shortDescription>
+        <value>Paid and Free</value>
+    </labels>
+    <labels>
+        <fullName>Pending</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pending</shortDescription>
+        <value>Pending</value>
+    </labels>
+    <labels>
+        <fullName>Percent_Off</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Percent Off</shortDescription>
+        <value>Percent Off:</value>
+    </labels>
+    <labels>
+        <fullName>Please_add_your_Personal_OAuth</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please add your Personal OAuth</shortDescription>
+        <value>Please add your Personal OAuth token from Eventbrite and set the Log Level as desired, then press the &apos;Authenticate&apos; button to perform authentication. Your Personal OAuth token is found in &apos;Account &gt; App Management &gt; Show Client Secret and OAuth Token&apos; in Eventbrite.</value>
+    </labels>
+    <labels>
+        <fullName>Please_choose_a_contact</fullName>
+        <categories>ContactListClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please choose a contact.</shortDescription>
+        <value>Please choose a contact.</value>
+    </labels>
+    <labels>
+        <fullName>Please_choose_a_lead</fullName>
+        <categories>ContactListClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please choose a lead</shortDescription>
+        <value>Please choose a lead.</value>
+    </labels>
+    <labels>
+        <fullName>Please_click_the</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please click the</shortDescription>
+        <value>Please click the &apos;Authenticate&apos; button to Authenticate with Eventbrite.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enable_Marketing_User</fullName>
+        <categories>ConfigureMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please enable Marketing User</shortDescription>
+        <value>Please enable &quot;Marketing User&quot; in your user settings.</value>
+    </labels>
+    <labels>
+        <fullName>Please_ensure_you_have_provided_the_Eventbrite_Application_Key</fullName>
+        <categories>SyncSingleEventPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please ensure you have provided the Eventbrite Application Key</shortDescription>
+        <value>Please ensure you have provided the Eventbrite Application Key, Client Secret, and clicked &apos;Authenticate&apos; on the Eventbrite Config page to enable syncing for your Salesforce org.</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_Custom_Question_for_your_Custom_Question_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a Custom Question for your Custom Question Mapping</shortDescription>
+        <value>Please specify a Custom Question for your Custom Question Mapping</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_Target_Salesforce_Field</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a Target Salesforce Field</shortDescription>
+        <value>Please specify a Target Salesforce Field.</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_Target_Salesforce_Field_for_the_Static_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a Target Salesforce Field for the Static Mapping</shortDescription>
+        <value>Please specify a Target Salesforce Field for the Static Mapping :</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_Target_Salesforce_Field_for_your_new_Custom_Question_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a Target Salesforce Field for your new Custom Question Mapping</shortDescription>
+        <value>Please specify a Target Salesforce Field for your new Custom Question Mapping.</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_Target_Salesforce_Field_for_your_new_Static_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a Target Salesforce Field for your new Static Mapping</shortDescription>
+        <value>Please specify a Target Salesforce Field for your new Static Mapping.</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_name_for_this_contact_list</fullName>
+        <categories>ContactListClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a name for this contact list</shortDescription>
+        <value>Please specify a name for this contact list.</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_question_for_your_new_Custom_Question_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a question for your new Custom Question Mapping</shortDescription>
+        <value>Please specify a question for your new Custom Question Mapping.</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_value_for_your_Static_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a value for your Static Mapping</shortDescription>
+        <value>Please specify a value for your Static Mapping.</value>
+    </labels>
+    <labels>
+        <fullName>Please_specify_a_value_for_your_new_Static_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please specify a value for your new Static Mapping.</shortDescription>
+        <value>Please specify a value for your new Static Mapping.</value>
+    </labels>
+    <labels>
+        <fullName>Promo_Codes</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Promo Codes</shortDescription>
+        <value>Promo Codes</value>
+    </labels>
+    <labels>
+        <fullName>Promo_Event</fullName>
+        <categories>Field Maps</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Promo Event</shortDescription>
+        <value>Promotional Event</value>
+    </labels>
+    <labels>
+        <fullName>Question</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Question</shortDescription>
+        <value>Question</value>
+    </labels>
+    <labels>
+        <fullName>Question_ID</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Question ID</shortDescription>
+        <value>Question ID</value>
+    </labels>
+    <labels>
+        <fullName>Question_Mappings</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Question Mappings</shortDescription>
+        <value>Question Mappings</value>
+    </labels>
+    <labels>
+        <fullName>Question_Text</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Question Text</shortDescription>
+        <value>Question Text</value>
+    </labels>
+    <labels>
+        <fullName>Questions</fullName>
+        <categories>Object Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Questions</shortDescription>
+        <value>Questions</value>
+    </labels>
+    <labels>
+        <fullName>Questions_Per_Page</fullName>
+        <categories>QuestionAnswersComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Questions Per Page</shortDescription>
+        <value>Questions Per Page</value>
+    </labels>
+    <labels>
+        <fullName>Ready</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ready</shortDescription>
+        <value>Ready</value>
+    </labels>
+    <labels>
+        <fullName>Record_Type</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Record Type</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Record_could_not_be_inserted</fullName>
+        <categories>DataSyncClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Record could not be inserted</shortDescription>
+        <value>Record could not be inserted:</value>
+    </labels>
+    <labels>
+        <fullName>Record_could_not_be_updated</fullName>
+        <categories>DataSyncClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Record could not be updated</shortDescription>
+        <value>Record could not be updated:</value>
+    </labels>
+    <labels>
+        <fullName>Refresh</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Refresh</shortDescription>
+        <value>Refresh</value>
+    </labels>
+    <labels>
+        <fullName>Relationship_field</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Relationship field</shortDescription>
+        <value>Relationship field..</value>
+    </labels>
+    <labels>
+        <fullName>Remove</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>Requried_fields</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required fields</shortDescription>
+        <value>Required fields</value>
+    </labels>
+    <labels>
+        <fullName>Reset</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reset</shortDescription>
+        <value>Reset Authentication</value>
+    </labels>
+    <labels>
+        <fullName>Sale_Ends</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sale Ends</shortDescription>
+        <value>Sale Ends</value>
+    </labels>
+    <labels>
+        <fullName>Sale_Starts</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sale Starts</shortDescription>
+        <value>Sale Starts</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Schedule_a_synchronization_to_occur</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Schedule a synchronization to occur</shortDescription>
+        <value>Schedule a synchronization to occur daily at a time of your choosing. You may change or cancel this at any time.</value>
+    </labels>
+    <labels>
+        <fullName>Scheduled_Sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Scheduled Sync</shortDescription>
+        <value>Scheduled Sync</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Select_Salesforce_Field</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Salesforce Field</shortDescription>
+        <value>Select Salesforce Field..</value>
+    </labels>
+    <labels>
+        <fullName>Select_if_you_would_like_to_only_insert_data</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select if you would like to only insert data</shortDescription>
+        <value>Select if you would like to only insert data, only update data, or both insert and update data from Eventbrite.</value>
+    </labels>
+    <labels>
+        <fullName>Select_the_Events_you_wish_to_sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Events you wish to sync</shortDescription>
+        <value>Select the Events you wish to sync based on the current status in Eventbrite.</value>
+    </labels>
+    <labels>
+        <fullName>Select_which_orders_to_sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select which orders to sync</shortDescription>
+        <value>Select which orders to sync to Salesforce based on if the buyer paid for them or not.</value>
+    </labels>
+    <labels>
+        <fullName>Select_yes_to_sync_Attendee_information</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select yes to sync Attendee information</shortDescription>
+        <value>Select yes to sync Attendee information to Salesforce.</value>
+    </labels>
+    <labels>
+        <fullName>Select_yes_to_sync_custom_questions_and_answers</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select yes to sync custom questions and answers</shortDescription>
+        <value>Select yes to sync custom questions and answers to a separate object related to Events and Attendees in Salesforce.</value>
+    </labels>
+    <labels>
+        <fullName>Should_this_object_be_included</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Should this object be included</shortDescription>
+        <value>Should this object be included in the sync or not?</value>
+    </labels>
+    <labels>
+        <fullName>Should_this_object_be_included_in_the_sync_or_not</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Should this object be included in the sync or not</shortDescription>
+        <value>Should this object be included in the sync or not?</value>
+    </labels>
+    <labels>
+        <fullName>Showing</fullName>
+        <categories>Paginator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Showing</shortDescription>
+        <value>Showing</value>
+    </labels>
+    <labels>
+        <fullName>Single_Event_Sync</fullName>
+        <categories>SyncSingleEventPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Single Event Sync</shortDescription>
+        <value>Single Event Sync</value>
+    </labels>
+    <labels>
+        <fullName>Sold</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sold</shortDescription>
+        <value>Sold</value>
+    </labels>
+    <labels>
+        <fullName>Start</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start</shortDescription>
+        <value>Start</value>
+    </labels>
+    <labels>
+        <fullName>Start_Sync</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start Sync</shortDescription>
+        <value>Start Sync</value>
+    </labels>
+    <labels>
+        <fullName>Start_colon</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start:</shortDescription>
+        <value>Start:</value>
+    </labels>
+    <labels>
+        <fullName>Started</fullName>
+        <categories>EventbriteConfig, SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Started</shortDescription>
+        <value>Started</value>
+    </labels>
+    <labels>
+        <fullName>Started_cap</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Started cap</shortDescription>
+        <value>Started</value>
+    </labels>
+    <labels>
+        <fullName>Starts</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Starts</shortDescription>
+        <value>Starts</value>
+    </labels>
+    <labels>
+        <fullName>Static_Buyer</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Static: &quot;Buyer&quot;</shortDescription>
+        <value>Static: &quot;Buyer&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Static_Mapping</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Static Mapping</shortDescription>
+        <value>Static Mapping</value>
+    </labels>
+    <labels>
+        <fullName>Static_Mappings</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Static Mappings</shortDescription>
+        <value>Static Mappings</value>
+    </labels>
+    <labels>
+        <fullName>Static_Value</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Static Value</shortDescription>
+        <value>Static Value</value>
+    </labels>
+    <labels>
+        <fullName>Status</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Sync</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync</shortDescription>
+        <value>Sync</value>
+    </labels>
+    <labels>
+        <fullName>Sync_Configuration</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync Configuration</shortDescription>
+        <value>Sync Configuration</value>
+    </labels>
+    <labels>
+        <fullName>Sync_Date</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync Date</shortDescription>
+        <value>Sync Date:</value>
+    </labels>
+    <labels>
+        <fullName>Sync_From_Eventbrite</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync From Eventbrite</shortDescription>
+        <value>Sync From Eventbrite</value>
+    </labels>
+    <labels>
+        <fullName>Sync_Logs</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync Logs</shortDescription>
+        <value>Sync Logs</value>
+    </labels>
+    <labels>
+        <fullName>Sync_Orders</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync Orders</shortDescription>
+        <value>Sync Orders</value>
+    </labels>
+    <labels>
+        <fullName>Sync_Progress</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync Progress</shortDescription>
+        <value>Sync Progress:</value>
+    </labels>
+    <labels>
+        <fullName>Sync_Status</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync Status</shortDescription>
+        <value>Sync Status:</value>
+    </labels>
+    <labels>
+        <fullName>Sync_could_not_complete_exceeded_limit</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync could not complete exceeded limit</shortDescription>
+        <value>Sync could not complete -- exceeded daily callout limit.</value>
+    </labels>
+    <labels>
+        <fullName>Sync_in_progress</fullName>
+        <categories>SyncStatusClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sync in progress</shortDescription>
+        <value>Sync in progress. Please wait for sync to finish before saving configuration changes.</value>
+    </labels>
+    <labels>
+        <fullName>Syncing_Events</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Syncing Events</shortDescription>
+        <value>Syncing Events</value>
+    </labels>
+    <labels>
+        <fullName>Syncing_Orders</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Syncing Orders</shortDescription>
+        <value>Syncing Orders</value>
+    </labels>
+    <labels>
+        <fullName>Target_Salesforce_Field</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Target Salesforce Field</shortDescription>
+        <value>Target Salesforce Field</value>
+    </labels>
+    <labels>
+        <fullName>Target_Salesforce_Object</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Target Salesforce Object</shortDescription>
+        <value>Target Salesforce Object</value>
+    </labels>
+    <labels>
+        <fullName>Target_Salesforce_fields_with_an_arrow</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Target Salesforce fields with an arrow</shortDescription>
+        <value>-Target Salesforce fields with an arrow</value>
+    </labels>
+    <labels>
+        <fullName>Text</fullName>
+        <categories>ObjectMappingComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Text</shortDescription>
+        <value>Text</value>
+    </labels>
+    <labels>
+        <fullName>The_event_sync_could_not_be_initialized_not_associated</fullName>
+        <categories>SyncSingleEventClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The event sync could not be initialized not associated</shortDescription>
+        <value>The event sync could not be initialized because the record is not associated with an Eventbrite event.</value>
+    </labels>
+    <labels>
+        <fullName>The_event_sync_could_not_be_initialized_sync_in_progress</fullName>
+        <categories>SyncSingleEventClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The event sync could not be initialized sync in progress</shortDescription>
+        <value>The event sync could not be initialized because there is a sync in progress. Please try again later.</value>
+    </labels>
+    <labels>
+        <fullName>The_event_sync_has_been_initialized</fullName>
+        <categories>SyncSingleEventClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The event sync has been initialized</shortDescription>
+        <value>The event sync has been initialized and will complete in a few minutes.</value>
+    </labels>
+    <labels>
+        <fullName>There_are_no_contact_lists_to_display</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>There are no contact lists to display</shortDescription>
+        <value>There are no contact lists to display. You may create one by clicking the &apos;New Contact List&apos; button.</value>
+    </labels>
+    <labels>
+        <fullName>There_are_no_contacts_to_display_Cont_Lead</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>There are no contacts to display Cont Lead</shortDescription>
+        <value>There are no contacts to display. You may create one by clicking the &apos;Add Contact&apos; or the &apos;Add Lead&apos; button.</value>
+    </labels>
+    <labels>
+        <fullName>This</fullName>
+        <categories>ContactListClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This</shortDescription>
+        <value>This</value>
+    </labels>
+    <labels>
+        <fullName>This_Event_Does_not_have_any_tickets</fullName>
+        <categories>TicketsComponent</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This Event Does not have any tickets</shortDescription>
+        <value>This event does not have any tickets associated with it.</value>
+    </labels>
+    <labels>
+        <fullName>This_event_does_not_have_any_access_codes</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This event does not have any access codes</shortDescription>
+        <value>This event does not have any access codes associated with it.</value>
+    </labels>
+    <labels>
+        <fullName>This_event_does_not_have_any_discount_codes_associated</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This event does not have any discount codes associated</shortDescription>
+        <value>This event does not have any discount codes associated with it.</value>
+    </labels>
+    <labels>
+        <fullName>This_record_is_not_associated_with_an_Evenbrite_event</fullName>
+        <categories>DetailsWrapperComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This record is not associated with an Evenbrite event</shortDescription>
+        <value>This record is not associated with an Evenbrite event.</value>
+    </labels>
+    <labels>
+        <fullName>Ticket_Details</fullName>
+        <categories>TicketsComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ticket Details</shortDescription>
+        <value>Ticket Details</value>
+    </labels>
+    <labels>
+        <fullName>Ticket_Type</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ticket Type</shortDescription>
+        <value>Ticket Type</value>
+    </labels>
+    <labels>
+        <fullName>Tickets_Applied_to</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tickets Applied to</shortDescription>
+        <value>Tickets Applied to</value>
+    </labels>
+    <labels>
+        <fullName>To_provide_Access_Codes_for_a_ticket</fullName>
+        <categories>PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To provide Access Codes for a ticket</shortDescription>
+        <value>To provide Access Codes for a ticket, you will need to set the ticket\&apos;s Sales Status to Hidden in Eventbrite.</value>
+    </labels>
+    <labels>
+        <fullName>To_provide_Discount_Codes_for_a_ticket</fullName>
+        <categories>PromoCodesClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To provide Discount Codes for a ticket</shortDescription>
+        <value>To provide Discount Codes for a ticket, you will need to create a paid ticket type on this event in Eventbrite.</value>
+    </labels>
+    <labels>
+        <fullName>URL</fullName>
+        <categories>Field Map</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>URL</shortDescription>
+        <value>URL</value>
+    </labels>
+    <labels>
+        <fullName>Unable_to_load_contact_lists</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to load contact lists</shortDescription>
+        <value>Unable to load contact lists -- daily callout limit exceeded</value>
+    </labels>
+    <labels>
+        <fullName>Unlimited</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unlimited</shortDescription>
+        <value>Unlimited</value>
+    </labels>
+    <labels>
+        <fullName>Update_Only</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Update Only</shortDescription>
+        <value>Update Only</value>
+    </labels>
+    <labels>
+        <fullName>Uses_per_Offer</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Uses per Offer</shortDescription>
+        <value>Uses per Offer:</value>
+    </labels>
+    <labels>
+        <fullName>View_Log</fullName>
+        <categories>SyncStatusPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Log</shortDescription>
+        <value>View Log</value>
+    </labels>
+    <labels>
+        <fullName>Webhook_Site_URI</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Webhook Site URI</shortDescription>
+        <value>Webhook Site URI</value>
+    </labels>
+    <labels>
+        <fullName>Webhooks_Enabled</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Webhooks Enabled</shortDescription>
+        <value>Webhooks Enabled</value>
+    </labels>
+    <labels>
+        <fullName>Weeks_to_Retain_Logs</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Weeks to Retain Logs</shortDescription>
+        <value>Weeks to Retain Logs</value>
+    </labels>
+    <labels>
+        <fullName>Weeks_to_retain_logs_help</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Weeks to retain logs help</shortDescription>
+        <value>Weeks to retain logs, after which older logs will be deleted permanently.</value>
+    </labels>
+    <labels>
+        <fullName>When_Sales_End</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>When Sales End</shortDescription>
+        <value>When Sales End</value>
+    </labels>
+    <labels>
+        <fullName>Yes</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>You_have_already_set_up_a_Custom_Question_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have already set up a Custom Question Mapping</shortDescription>
+        <value>You have already set up a Custom Question Mapping for the Target Salesforce Field:</value>
+    </labels>
+    <labels>
+        <fullName>You_have_already_set_up_a_Static_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have already set up a Static Mapping</shortDescription>
+        <value>You have already set up a Static Mapping for the Target Salesforce Field:</value>
+    </labels>
+    <labels>
+        <fullName>You_have_already_set_up_an_Eventbrite_Field_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have already set up an Eventbrite Field Mapping</shortDescription>
+        <value>You have already set up an Eventbrite Field Mapping for the Target Salesforce Field:</value>
+    </labels>
+    <labels>
+        <fullName>Your_profile_does_not_have</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your profile does not have</shortDescription>
+        <value>Your profile does not have the &apos;Customize Application Permission&apos;. You may initiate a sync, but you can not authenticate or perform configuration changes.</value>
+    </labels>
+    <labels>
+        <fullName>and_Custom_Question_Mappings</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>and Custom Question Mappings</shortDescription>
+        <value>and Custom Question Mappings.</value>
+    </labels>
+    <labels>
+        <fullName>are_required_to_be_mapped</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>are required to be mapped</shortDescription>
+        <value>are required to be mapped</value>
+    </labels>
+    <labels>
+        <fullName>cannot_be_mapped_as_an_External_Id_to</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>cannot be mapped as an External Id to</shortDescription>
+        <value>Cannot map Target Salesforce Field as an External Id :</value>
+    </labels>
+    <labels>
+        <fullName>eventbrite_and_Custom_Question_Mappings</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Eventbrite and Custom Question Mappings</shortDescription>
+        <value>Target Salesforce Field has both Eventbrite and Custom Question Mappings :</value>
+    </labels>
+    <labels>
+        <fullName>has_both</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>has both</shortDescription>
+        <value>has both</value>
+    </labels>
+    <labels>
+        <fullName>has_both_Static_and_Eventbrite_Mappings</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>has both Static and Eventbrite Mappings</shortDescription>
+        <value>Target Salesforce Field has both Static and Eventbrite Mappings :</value>
+    </labels>
+    <labels>
+        <fullName>has_both_new_Custom_Question_and</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>has both new Custom Question and</shortDescription>
+        <value>has both new Custom Question and</value>
+    </labels>
+    <labels>
+        <fullName>has_both_new_Static_and</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>has both new Static and</shortDescription>
+        <value>has both new Static and</value>
+    </labels>
+    <labels>
+        <fullName>has_more_than_one_Custom_Question_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>has more than one Custom Question Mapping</shortDescription>
+        <value>Target Salesforce Field has more than one Custom Question Mapping :</value>
+    </labels>
+    <labels>
+        <fullName>has_more_than_one_Eventbrite_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>has more than one Eventbrite Mapping</shortDescription>
+        <value>Target Salesforce Field has more than one Eventbrite Mapping :</value>
+    </labels>
+    <labels>
+        <fullName>has_more_than_one_Static_Mapping</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>has more than one Static Mapping</shortDescription>
+        <value>Target Salesforce Field has more than one Static Mapping :</value>
+    </labels>
+    <labels>
+        <fullName>indicate_relationships_between_objects_and_require</fullName>
+        <categories>ConfigureMappingPage</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>indicate relationships between objects and require</shortDescription>
+        <value>indicate relationships between objects and require (1) selection of a lookup field and (2) a parent field containing the value provided by the Eventbrite source field</value>
+    </labels>
+    <labels>
+        <fullName>is_a_required_field_Please_choose_a_target_field</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>is a required field. Please choose a target field</shortDescription>
+        <value>Please choose a target field for this required field :</value>
+    </labels>
+    <labels>
+        <fullName>is_not_a_valid_number</fullName>
+        <categories>Paginator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>is not a valid number</shortDescription>
+        <value>is not a valid number.</value>
+    </labels>
+    <labels>
+        <fullName>is_not_a_valid_numerical_value</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>is_not_a_valid_numerical_value</shortDescription>
+        <value>Not a valid numerical value. Please try again :</value>
+    </labels>
+    <labels>
+        <fullName>last</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>last</shortDescription>
+        <value>last</value>
+    </labels>
+    <labels>
+        <fullName>loading</fullName>
+        <categories>EventbriteConfig</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>loading</shortDescription>
+        <value>loading</value>
+    </labels>
+    <labels>
+        <fullName>must_have_an_email_address</fullName>
+        <categories>ContactListClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>must have an email address</shortDescription>
+        <value>must have an email address.</value>
+    </labels>
+    <labels>
+        <fullName>next</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>next</shortDescription>
+        <value>next</value>
+    </labels>
+    <labels>
+        <fullName>not_mapped</fullName>
+        <categories>ObjectMappingClass</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>not mapped</shortDescription>
+        <value>Required fields not mapped :</value>
+    </labels>
+    <labels>
+        <fullName>of</fullName>
+        <categories>EventbriteContactList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>of</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>start_lower</fullName>
+        <categories>PromoCodesComp</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>start</shortDescription>
+        <value>start</value>
+    </labels>
+    <labels>
+        <fullName>static_and_Custom_Question_Mappings</fullName>
+        <categories>EventbriteObjectMapping</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Static and Custom Question Mappings</shortDescription>
+        <value>Target Salesforce Field has both Static and Custom Question Mappings :</value>
+    </labels>
+    <labels>
+        <fullName>test</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>test</shortDescription>
+        <value>this is a test message</value>
+    </labels>
+    <labels>
+        <fullName>uses</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>uses</shortDescription>
+        <value>uses</value>
+    </labels>
+</CustomLabels>

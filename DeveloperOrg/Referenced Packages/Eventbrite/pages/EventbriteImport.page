@@ -1,0 +1,318 @@
+<apex:page controller="EventbriteSync.EventbriteImport" id="importPage" tabstyle="Eventbrite__tab">
+    <apex:sectionheader title="{!IF(SyncType == 'ImportAndMap', 'Import and Process', 'Import Only')}" subtitle="Eventbrite Import" />
+    <apex:form >
+        <apex:actionFunction action="{!ChangeDelta}" rerender="deltaBlock" name="changeDelta" status="deltaSpinner" />
+        <apex:actionFunction action="{!UpdateSelectedEBEntities}" rerender="mainBlock" name="UpdateSelectedEBEntities" status="objSelectionSpinner" />
+        <apex:actionFunction action="{!UpdateSelectedEventFilters}" rerender="mainBlock" name="UpdateSelectedEventFilters" status="eventFilterSelectionSpinner" />
+        <apex:actionFunction action="{!UpdateSelectedOrderFilters}" rerender="mainBlock" name="UpdateSelectedOrderFilters" status="orderFilterSelectionSpinner" />
+        <apex:actionFunction action="{!ChangeSyncType}" name="changeSyncType"  status="syncSpinner" />
+        <apex:actionFunction action="{!ChangeSchedule}" name="ChangeSchedule" rerender="scheduleBlock" status="scheduleSpinner" />
+        
+        <apex:pageBlock rendered="{!$CurrentPage.parameters.resets='1'}">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!ResetObjMap}" value="Reset Object Mappings" />
+                <apex:commandButton action="{!ResetFldMap}" value="Reset Field Mappings" />
+                <apex:commandButton action="{!ClearStandardData}" value="Clear Standard Data" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        
+        <c:EventbriteSplash Splash_Set="Install/Upgrade Demo" Splash_Starting_Page="1" rendered="{!AND($CurrentPage.Parameters.hideSplash != '1', NOT(ShowInstallUpgradeSplash), $CurrentPage.parameters.doAuth!='1')}"/>
+        <c:EventbriteAuth Authenticated="{!Authenticated}" rendered="{!OR($CurrentPage.Parameters.hideSplash = '1', ShowInstallUpgradeSplash, $CurrentPage.parameters.doAuth='1')}"/>
+        
+        <apex:outputPanel rendered="{!AND(OR($CurrentPage.Parameters.hideSplash = '1', ShowInstallUpgradeSplash), Authenticated, $CurrentPage.parameters.doAuth != '1')}">
+            <apex:pageBlock title="About the Import Process" id="mainBlock" mode="mainDetail" rendered="{!Authenticated}">
+                
+                <apex:pageBlockButtons location="top" >
+                    <apex:outputLink styleClass="btn" style="text-decoration:none;padding:4px;" value="{!$Page.EventbriteSync__EventbriteImport}?showAdvanced=1&hideSplash=1" rendered="{!OR(ISNULL($CurrentPage.Parameters.showAdvanced),$CurrentPage.Parameters.showAdvanced = '0')}">Show Advanced</apex:outputLink>
+                    <apex:outputLink styleClass="btn" style="text-decoration:none;padding:4px;" value="{!$Page.EventbriteSync__EventbriteImport}?showAdvanced=0&hideSplash=1" rendered="{!$CurrentPage.Parameters.showAdvanced = '1'}">Hide Advanced</apex:outputLink>
+                    <apex:commandButton action="{!ViewMappings}" value="Configure Mappings" rendered="{!AND(NOT(ImportParserActive),SyncType='true')}" />
+                </apex:pageBlockButtons>
+                
+               <apex:pageBlockSection columns="1">
+                       <p>
+                            Your Eventbrite Events, Attendees and Orders can be imported into Salesforce without any configuration using 
+                            the "Import Only" setting. It works right out of the box! EventbriteSync imports your Eventbrite data into 
+                            custom Salesforce Objects. These Eventbrite objects are pre-configured to match the data structure of Eventbrite 
+                            and preserve the relationships between all of your Eventbrite Data. The custom import objects are fully featured, 
+                            allowing you to make use of standard Salesforce features like the report builder, Workflow, and even your own custom 
+                            Apex code to help meet advanced business requirements.
+                        </p>
+                    </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            
+            <apex:pageBlock title="Import Options">
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton action="{!DoEventAssign}" value="Pre-Assign Event Ids" />
+                    <apex:commandButton onclick="if(!confirm('Are you sure?'))return false;" action="{!StartEventImport}" value="{!IF(SyncType == 'true', 'Start Import and Process', 'Start Import')}" rendered="{!NOT(ImportParserActive)}" />
+                    <apex:commandButton onclick="if(!confirm('Are you sure?')" action="{!StopJobs}" value="Stop" rendered="{!ImportParserActive}" />
+                </apex:pageBlockButtons>
+                
+                <apex:pageBlockSection title="Authentication" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.eventbritesync__Authenticated_as}"/> 
+                        <apex:outputPanel >
+                            <apex:outputText value="{!if(Core.EBApp.EventbriteSync__AccessToken__c != null && Core.EBApp.EventbriteSync__User_Email__c != null,Core.EBApp.EventbriteSync__User_Email__c,'-')}" rendered="{!Authenticated}"/>&nbsp;
+                            <apex:outputLink value="{!$Page.EventbriteSync__EventbriteImport}?doAuth=1">(Reset)</apex:outputLink>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Import Options" collapsible="false">
+                    
+                    <apex:pageBlockSectionItem helpText="{!$Label.eventbritesync__Click_the_last_sync_date_to_view_the_sync_status}">
+                        <apex:outputLabel value="{!$Label.eventbritesync__Last_Sync_Date}" />
+                        <apex:outputText value="{!LastSyncDate}" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem helpText="Enter the Eventbrite Event Id of the record you'd like to import here, prior to clicking on the 'Step 1' button above to sync only records related to this Event.">
+                        <apex:outputLabel value="Single Event Id" />
+                        <apex:inputText id="eventbriteId" value="{!SingleEventId}" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem helpText="Ctrl+Click to select which Eventbrite Entities should be imported." >
+                        <apex:outputLabel value="Import Entities" />
+                        <apex:outputPanel >
+                            <apex:selectList value="{!SelectedEBEntities}" multiselect="true" onchange="UpdateSelectedEBEntities();">
+                                <apex:selectOptions value="{!EBEntities}"/>
+                            </apex:selectList>
+                            <apex:actionStatus id="objSelectionSpinner">
+                                <apex:facet name="start">
+                                    <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem helpText="{!$Label.eventbritesync__Select_the_Events_you_wish_to_sync}">
+                        <apex:outputLabel value="{!$Label.eventbritesync__Filter_Events}" />
+                       
+                        <apex:outputPanel >
+                            <apex:selectList multiselect="true" value="{!SelectedEventStatuses}" onchange="UpdateSelectedEventFilters();">
+                                <apex:selectOption itemValue="Draft" itemLabel="{!$Label.eventbritesync__Draft}"/>
+                                <apex:selectOption itemValue="Live" itemLabel="{!$Label.eventbritesync__Live}"/>
+                                <apex:selectOption itemValue="Started" itemLabel="{!$Label.eventbritesync__Started}"/>
+                                <apex:selectOption itemValue="Ended" itemLabel="{!$Label.eventbritesync__Ended}"/>
+                                <!-- <apex:selectOption itemValue="Completed" itemLabel="{!$Label.Completed}"/>  -->
+                                <apex:selectOption itemValue="Canceled" itemLabel="{!$Label.eventbritesync__Canceled}"/>
+                            </apex:selectList>
+                            <apex:actionStatus id="eventFilterSelectionSpinner">
+                                <apex:facet name="start">
+                                    <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                            
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem />
+                    
+                    <apex:pageBlockSectionItem helpText="{!$Label.eventbritesync__Select_which_orders_to_sync}">
+                        <apex:outputLabel value="Filter Orders" />
+                        
+                        <apex:outputPanel >
+                            <apex:selectList size="1" value="{!IsPaidOnly}" onchange="UpdateSelectedOrderFilters();">
+                                <apex:selectOption itemValue="paidonly" itemLabel="{!$Label.eventbritesync__Paid_Only}"/>
+                                <apex:selectOption itemValue="freeandpaid" itemLabel="{!$Label.eventbritesync__Paid_and_Free}"/>
+                            </apex:selectList>
+                            <apex:actionStatus id="orderFilterSelectionSpinner">
+                                <apex:facet name="start">
+                                    <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem />
+                    
+                    
+                    
+                    <apex:pageBlockSectionItem rendered="{!$CurrentPage.parameters.resets='1'}">
+                        <apex:outputLabel value="Event Start Page" />
+                        <apex:inputText value="{!EventStartPage}" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!$CurrentPage.parameters.resets='1'}" />
+                    
+                    <apex:pageBlockSectionItem />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection id="deltaBlock" title="Delta Sync" collapsible="false">
+                    
+                    <apex:pageBlockSectionItem helpText="When enabled, Order and Attendee information that has been created or updated since the last sync will be retrieved from Eventbrite.  If not selected, all data will be imported.">
+                        <apex:outputLabel value="Delta Sync" />
+                        <apex:outputPanel >
+                            <apex:selectRadio style="margin-top: -9px;" onchange="changeDelta();" value="{!isDelta}">
+                                <apex:selectOption itemValue="true" itemLabel="{!$Label.eventbritesync__Yes}"/>
+                                <apex:selectOption itemValue="false" itemLabel="{!$Label.eventbritesync__No}"/>
+                            </apex:selectRadio>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Sync Changes Since" rendered="{!IsDelta}" />
+
+                        <apex:actionStatus id="deltaSpinner">
+                            <apex:facet name="start">
+                                <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                            </apex:facet>
+                            <apex:facet name="stop">
+                                <apex:inputField value="{!DummyLog.EventbriteSync__DateTime__c}" rendered="{!IsDelta}" onblur="changeDelta();"/>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection id="scheduleBlock" title="Scheduling" collapsible="false">
+                    
+                    <apex:pageBlockSectionItem helpText="To create a daily scheduled job to import/process Eventbrite data, enable this option and select a desired time." >
+                        <apex:outputLabel value="Recurring" />
+                        <apex:outputPanel >
+                            <apex:selectRadio style="margin-top: -9px;" onchange="ChangeSchedule();" value="{!IsScheduled}">
+                                <apex:selectOption itemValue="true" itemLabel="{!$Label.eventbritesync__Yes}"/>
+                                <apex:selectOption itemValue="false" itemLabel="{!$Label.eventbritesync__No}"/>
+                            </apex:selectRadio>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.eventbritesync__Daily_Sync_Time}" rendered="{!IsScheduled}" />
+
+                        <apex:actionStatus id="scheduleSpinner">
+                            <apex:facet name="start">
+                                <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                            </apex:facet>
+                            <apex:facet name="stop">
+                                <apex:outputPanel rendered="{!IsScheduled}">
+                       
+                                    <apex:selectList onchange="ChangeSchedule();" value="{!ScheduledHour}" size="1">
+                                        <apex:selectOption itemValue="12" itemLabel="12:00"/>
+                                        <apex:selectOption itemValue="1" itemLabel="1:00"/>
+                                        <apex:selectOption itemValue="2" itemLabel="2:00"/>
+                                        <apex:selectOption itemValue="3" itemLabel="3:00"/>
+                                        <apex:selectOption itemValue="4" itemLabel="4:00"/>
+                                        <apex:selectOption itemValue="5" itemLabel="5:00"/>
+                                        <apex:selectOption itemValue="6" itemLabel="6:00"/>
+                                        <apex:selectOption itemValue="7" itemLabel="7:00"/>
+                                        <apex:selectOption itemValue="8" itemLabel="8:00"/>
+                                        <apex:selectOption itemValue="9" itemLabel="9:00"/>
+                                        <apex:selectOption itemValue="10" itemLabel="10:00"/>
+                                        <apex:selectOption itemValue="11" itemLabel="11:00"/>
+                                    </apex:selectList>
+                                    
+                                    <apex:selectList onchange="ChangeSchedule();" value="{!AMPM}" size="1">
+                                        <apex:selectOption itemValue="AM" itemLabel="{!$Label.eventbritesync__AM}"/>
+                                        <apex:selectOption itemValue="PM" itemLabel="{!$Label.eventbritesync__PM}"/>
+                                    </apex:selectList>
+                                </apex:outputPanel>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            
+            <apex:pageBlock title="Processing Options - Optional (Advanced)" rendered="{!$CurrentPage.parameters.showAdvanced = '1'}">
+                
+                <apex:pageBlockSection title="Advanced Processing" columns="1" collapsible="false">
+                        <apex:outputPanel >
+                            <p>
+                                If you’re an Advanced Salesforce User, you can enable the “Mapping Process” setting. This takes Eventbrite Records 
+                                from their custom objects and moves them into the objects that you already use, like Campaigns, Opportunities, and 
+                                Contacts (or any other Standard or Custom Salesforce Object). Please be advised that as an advanced feature, the 
+                                Mapping Process can be complex to configure.
+                            </p>
+                            <p>
+                                <span style="font-weight:700">Note:  </span>If you’ve added any custom logic to the objects in the Mapping Process, 
+                                it’s possible for you to create mappings 
+                                that don’t satisfy your logic. The record will remain safely in the Import Objects and an error will be visible within 
+                                the Integration Log. Please refer to the documentation for detailed error descriptions. If you’re unsure how to proceed 
+                                based on the error message in the Integration Log, we suggest that you contact a Salesforce Consultant to help you 
+                                implement the Mapping Process into your existing logic or processes.
+                            </p>
+                            <p>
+                                <span style="font-weight:700">
+                                    Eventbrite Support is unable to offer in-depth support implementing the Mapping Process due to the unique configurations 
+                                    within each Salesforce Org.
+                                </span>
+                            </p>
+                            
+                            <div align="center" style="padding-top:15px">
+                                <apex:outputLabel value="Enable Processing" style="color: #4a4a56;text-aligh:right;font-fize:91%;font-weight:bold;"/>
+                                
+                                <apex:inputCheckbox value="{!SyncType}" onchange="if(!confirm((this.checked ? 'After enabling, click on the \'Configure Mappings\' button to review the current configuration of Eventbrite Object to Salesforce Object and field mappings.' : 'Processing of imported records will no longer occur.'))) {location.reload();} else {changeSyncType();}"/>
+                                
+                                <apex:actionStatus id="syncSpinner">
+                                    <apex:facet name="start">
+                                        <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                                    </apex:facet>
+                                </apex:actionStatus>
+                            </div>
+                            
+                        </apex:outputPanel>
+                        
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            
+            <c:EventbriteWebhooks rendered="{!$CurrentPage.parameters.showAdvanced = '1'}" />
+            
+            
+            <apex:pageBlock id="logBlock" title="Debug Logging (Advanced)" rendered="{!$CurrentPage.parameters.showAdvanced = '1'}">
+                <apex:pageBlockButtons location="top" >
+                    
+                    <apex:outputPanel style="align:center;">
+                        <div style="float:left;min-height:30px;min-width:30px;">
+                            <apex:actionStatus id="loading">
+                                <apex:facet name="start">
+                                    <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </div>
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel id="logButtons">
+                        <apex:commandButton value="{!$Label.eventbritesync__Save}" action="{!SaveLogging}" rerender="logBlock" status="{!$Label.eventbritesync__loading}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockButtons>
+                
+                <apex:pageBlockSection title="Details" columns="1" id="logOverview" collapsible="false">
+                    There are a lot of behind the scenes API callouts and processing that occurs to import your Eventbrite data.
+                    Enabling the logs below will help identify when errors occur and assist with any necessary troubleshooting.
+                </apex:pageBlockSection>
+                   
+                <apex:pageBlockSection id="syncLogsSection" columns="1">
+                    
+                    <apex:pageBlocksectionItem helpText="{!$Label.eventbritesync__Create_more_or_less_logs}">
+                        <apex:outputText value="{!$Label.eventbritesync__Log_Level}"/>
+                        <apex:outputPanel >
+                            <apex:selectlist value="{!Core.EBApp.EventbriteSync__LogLevel__c}" size="1">
+                                <apex:selectOptions value="{!DebugLevels}"/>
+                            </apex:Selectlist>
+                        </apex:outputPanel>
+                    </apex:pageBlocksectionItem>
+                    
+                    <apex:pageBlockSectionItem helpText="{!$Label.eventbritesync__Weeks_to_retain_logs_help}">
+                        <apex:outputLabel value="{!$Label.eventbritesync__Weeks_to_Retain_Logs}" />
+                        <apex:selectList value="{!WeeksToRetainLogs}" size="1">
+                            <apex:selectOption itemValue="0" itemLabel="{!$Label.eventbritesync__Always_Retain}" />
+                            <apex:selectOption itemValue="2" itemLabel="2" />
+                            <apex:selectOption itemValue="4" itemLabel="4" />
+                            <apex:selectOption itemValue="6" itemLabel="6" />
+                            <apex:selectOption itemValue="8" itemLabel="8" />
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem helpText="{!$Label.eventbritesync__Max_Number_of_Logs_to_Retain_Help}">
+                        <apex:outputLabel value="{!$Label.eventbritesync__Max_Number_of_Logs_to_Retain}" />
+                        <apex:inputText value="{!MaxNumberOfLogsToRetain}" maxlength="18" />
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+    
+    <apex:include pageName="EventbriteSync__EventbriteDebug" rendered="{!AND(OR($CurrentPage.Parameters.hideSplash = '1', ShowInstallUpgradeSplash), Authenticated, $CurrentPage.parameters.doAuth != '1')}" />
+    <apex:include pageName="EventbriteSync__EventbriteParsingErrors" rendered="{!AND(OR($CurrentPage.Parameters.hideSplash = '1', ShowInstallUpgradeSplash), Authenticated, $CurrentPage.parameters.doAuth != '1', SyncType='true', $CurrentPage.parameters.showAdvanced = '1')}" />
+
+</apex:page>

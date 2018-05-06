@@ -1,0 +1,50 @@
+<apex:page controller="EventbriteSync.EventbriteParsingErrors" readonly="true">
+    
+    <apex:form >
+<!--         <apex:pageBlock title="Processing Errors" id="errorBlock">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Refresh" rerender="errorBlock" status="errorResultsSpinner"/>
+                <apex:actionStatus id="errorResultsSpinner">
+                    <apex:facet name="start">
+                        <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!Errors}" var="err" id="resultsTable" >
+                <apex:column headerValue="Import Object" >
+                    <apex:outputlink value="/{!LEFT(err.recId,3)}">{!err.objType}</apex:outputlink>
+                </apex:column>
+                <apex:column headerValue="Name" >
+                    <apex:outputlink value="/{!err.recId}">{!err.name}</apex:outputlink> 
+                </apex:column>
+                <apex:column headerValue="Error" value="{!err.errorMsg}" />
+                <apex:column headerValue="Last Processed" value="{!err.errorDate}" />
+            </apex:pageBlockTable>
+            <apex:outputtext value="No records to display" rendered="{!Errors.size == 0}" />
+        </apex:pageBlock> -->
+        
+        <apex:pageBlock title="Import and Processing Related Jobs" id="asyncJobs" >
+            
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Refresh" rerender="asyncJobs" status="jobResultsSpinner"/>
+                <apex:actionStatus id="jobResultsSpinner">
+                    <apex:facet name="start">
+                        <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!AsyncJobs}" var="job">
+                    <apex:column value="{!job.Status}" />
+                    <apex:column value="{!job.ExtendedStatus}" />
+                    <apex:column value="{!job.ApexClass.Name}" />
+                    <apex:column value="{!job.CompletedDate}" />
+                    <apex:column value="{!job.JobItemsProcessed}" />
+                    <apex:column value="{!job.TotalJobItems}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

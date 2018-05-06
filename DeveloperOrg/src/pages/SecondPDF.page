@@ -1,0 +1,30 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+  <html>
+  <head>
+        <style>
+            @page {
+                size: A4;
+                margin: 25mm;
+                @top-center {
+                    content: "Sample";
+                }
+                @bottom-center {
+                    content: "Page " counter(page) " of " counter(pages);
+                }
+            }
+            .page-break {
+                display:block;
+                page-break-after:always;
+            }
+            body {
+                font-family: Arial Unicode MS;
+            }
+        </style>
+    </head>
+    <body>
+          <h1>Congratulations</h1>
+              This is your Second new Page
+      
+      </body>
+  </html>
+</apex:page>

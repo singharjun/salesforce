@@ -1,0 +1,155 @@
+<apex:page controller="EventbriteSync.EventbriteImport" readOnly="true" >
+    <apex:form >
+    	<apex:actionFunction name="refreshResults" action="{!Refresh}" />
+        
+        <apex:pageBlock title="Import Results" id="resultsTable">
+            <!-- 
+            Show the Process All button when ALL the below criteria are met:
+                - ImportParserActive is false, meaning the batch is not running.
+                - statmode != '1', meaning we are not on the separate page for large data volume.
+                - TotalImportCount < 50000, meaning we are not in a situation where we need to direct the user to the separate page for large data volume.
+                - SyncType='true', meaning the Enable Processing checkbox is marked True.
+            
+            Show the Refresh button when ALL the below criteria are met:
+                - statmode != '1', meaning we are not on the separate page for large data volume.
+                - TotalImportCount < 50000, meaning we are not in a situation where we need to direct the user to the separate page for large data volume.
+
+            Show the Remove All button in ANY of the below scenario's.  You'll notice each scenario below checks that ImportParserActive is false.  That's because we want to hide the Remove All button when the batch is running.
+                - When we don't need the separate page for large data volume.  TotalImportCount = 50000 when we need the separate page.  So we check here that the TotalImportCount is less than 50000. Also make sure ImportParserActive is false.
+                - When we are actually in the separate page, so we check that statmode == 1. Also make sure ImportParserActive is false. 
+
+            Show the View All button when ALL the below criteria are met:
+                - We are Not on the separate page for large data volume.  So, statmode != '1'.
+                - TotalImportCount = 50000, meaning we need to use the separate page for large data volume.
+            -->
+            <apex:pageBlockButtons location="top" >
+                <apex:outputPanel >
+                    <!-- Process All button -->
+                    <apex:commandButton value="Process All" onclick="if(!confirm('Are you sure?  This will begin processing the below Import Records.'))return false;" action="{!StartProcessing}" rendered="{!AND(NOT(ImportParserActive), NOT($CurrentPage.Parameters.statmode == '1'), TotalImportCount < 50000, SyncType='true')}" />
+                    
+                    <!-- Remove All button -->
+                    <apex:commandButton value="Remove All" onclick="if(!confirm('Are you sure?  This will initiate a request to remove all of the below Import Records.  This may take a few minutes to complete and may not be able to remove all records in one run.  After running, wait a few moments before refreshing this page to see an updated count below.'))return false;" action="{!ClearImportData}" rendered="{!AND(NOT(ImportParserActive), OR(TotalImportCount < 50000, $CurrentPage.Parameters.statmode == '1'))}"/>
+
+                    <!-- Refresh button -->
+                    <apex:commandButton value="Refresh" action="{!Refresh}" rerender="resultsTable" status="importResultsSpinner" rendered="{!AND(NOT($CurrentPage.Parameters.statmode == '1'), TotalImportCount < 50000)}"/>
+                </apex:outputPanel>
+
+                <!-- View All button -->
+                <apex:outputLink value="/apex/EventbriteSync__EventbriteDebug?statmode=1" styleClass="btn" style="text-decoration:none; padding:4px;" rendered="{!AND($CurrentPage.Parameters.statmode != '1',TotalImportCount = 50000)}">View All</apex:outputLink>
+                
+                <apex:actionStatus id="importResultsSpinner">
+                    <apex:facet name="start">
+                        <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection >
+            	<apex:pageBlockSectionItem >
+                    
+                    <apex:outputLabel value="Which Eventbrite Object?" />
+                    
+                    <apex:outputPanel >
+                        <apex:selectList value="{!EntitySelection}" size="1" onchange="refreshResults();">
+                            <apex:selectOptions value="{!EntityOptions}" />
+                        </apex:selectList>
+                    </apex:outputPanel>
+                    
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!ImportResults}" var="res" rendered="{!OR(TotalImportCount < 50000, $CurrentPage.Parameters.statmode == '1')}">
+                    <apex:column headerValue="Import Object">
+                        <apex:outputLink value="/{!res.objPrefix}" target="_blank">{!res.objType}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Record Count">
+                        <apex:outputText value="{!IF(res.recCount == 50000, TEXT(res.recCount) + '+', res.recCount)}" />
+                    </apex:column>
+                    <apex:column headerValue="Processing Errors" rendered="{!SyncType='true'}">
+                        <apex:outputText value="{!IF(res.errorCount == 50000, TEXT(res.errorCount) + '+', res.errorCount)}" />
+                    </apex:column>
+                    
+                    <!-- 
+                    Show Actions column in ANY of the below scenario's. You'll notice each one checks that ImportParserActive is false.  That's because we want to hide the entire column when the batch is running:
+                        - When we don't need the separate page for large data volume.  TotalImportCount = 50000 when we need the separate page.  So we check here that the TotalImportCount is less than 50000. Also make sure ImportParserActive is false.
+                        - When we are actually in the separate page, so we check that statmode == 1. Also make sure ImportParserActive is false. 
+
+                    Show the Process, Reset Errors, and Dividers when ALL the below criteria are met:
+                        - When we are NOT in the separate page, so we check that statmode != 1.
+                        - When SyncType is True. This means the Enable Processing checkbox was marked True.
+
+                    Show the Remove All link in ANY of the below scenario's.  These are currently the same requirements as the Action column itself, so I don't even add a rendered attribute for it because when the Action column is hidden, the Remove All link will automatically be hidden with it. You'll notice each scenario below checks that ImportParserActive is false.  That's because we want to hide the Remove All link when the batch is running.
+                        - When we don't need the separate page for large data volume.  TotalImportCount = 50000 when we need the separate page.  So we check here that the TotalImportCount is less than 50000. Also make sure ImportParserActive is false.
+                        - When we are actually in the separate page, so we check that statmode == 1. Also make sure ImportParserActive is false. 
+                    -->
+                    <apex:column headerValue="Actions" rendered="{!AND(NOT(ImportParserActive), OR(TotalImportCount < 50000, $CurrentPage.Parameters.statmode == '1'))}">
+                        
+                        <!-- Process -->
+                        <apex:commandLink value="Process" action="{!ProcessNow}" rendered="{!AND(NOT($CurrentPage.Parameters.statmode == '1'), SyncType='true')}">
+                            <apex:param name="ProcessType" value="{!res.objType}" assignTo="{!ProcessType}" />
+                        </apex:commandLink>
+                        
+                        <!-- Divider -->
+                        <apex:outputText value=" | " rendered="{!AND(NOT($CurrentPage.Parameters.statmode == '1'), SyncType='true')}" />
+                        
+                        <!-- Reset Errors -->
+                        <apex:commandLink value="Reset Errors" action="{!ResetNow}" rendered="{!AND(NOT($CurrentPage.Parameters.statmode == '1'), SyncType='true')}">
+                            <apex:param name="ProcessType" value="{!res.objType}" assignTo="{!ProcessType}" />
+                        </apex:commandLink>
+                        
+                        <!-- Divider -->
+                        <apex:outputText value=" | " rendered="{!AND(NOT($CurrentPage.Parameters.statmode == '1'), SyncType='true')}" />
+                        
+                        <!-- Remove All for one object type-->
+                        <apex:commandLink value="Remove All" onclick="if(!confirm('Are you sure?  This will initiate a request to remove all of the Import Records for this Object.  This may take a few minutes to complete and may not be able to remove all records in one run.  After running, wait a few moments before refreshing this page to see an updated count.'))return false;" action="{!RemoveAllForThisObject}" >
+                            <apex:param name="ProcessType" value="{!res.objType}" assignTo="{!ProcessType}" />
+                        </apex:commandLink>
+
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection collapsible="false" rendered="{!AND(TotalImportCount = 50000, $CurrentPage.Parameters.statmode != '1')}" columns="1">
+                Note:  Due to a large number of imported records, this information is provided on a separate page.  Click the "View All" button above to view full stats.
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="StandardData" rendered="{!$CurrentPage.parameters.resets='1'}">
+            <apex:pageBlockSection title="Standard Salesforce Objects - Processed Queue Items">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Campaigns  " />
+                    <apex:outputText value="{!Campaigns.size}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Ticket Types  " />
+                    <apex:outputText value="{!TicketTypesSobjs.size}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Opportunities  " />
+                    <apex:outputText value="{!Opportunities.size}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Contacts  " />
+                    <apex:outputText value="{!Contacts.size}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Barcodes  " />
+                    <apex:outputText value="{!BarcodeSobjs.size}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Promo Codes  " />
+                    <apex:outputText value="{!PromoCodeSobjs.size}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Q&As  " />
+                    <apex:outputText value="{!QuestionSObjs.size}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="OLIs  " />
+                    <apex:outputText value="{!OLISObjs.size}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

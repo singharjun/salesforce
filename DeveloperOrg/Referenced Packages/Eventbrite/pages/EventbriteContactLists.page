@@ -1,0 +1,408 @@
+<apex:page controller="EventbriteSync.EventbriteContactLists" id="contactListPage">
+    <apex:sectionHeader title="Eventbrite" subtitle="{!$Label.eventbritesync__Contact_Lists}"/>
+    
+    <apex:form id="contactListForm">
+        <apex:actionFunction name="submitNewContactList" action="{!submitNewContactList}" status="loading" onComplete="reloadContactLists();hideMessages();" rerender="contactListsPanel, submitMessages" />
+        <apex:actionFunction name="reloadContactLists" action="{!loadContactLists}" status="loading" rerender="contactListsPanel, contactLists, contactListsPagingTop, contactListsPagingBottom" />
+        
+        <apex:actionFunction name="doInitialize" action="{!Initialize}" rerender="contactListForm"/>
+        <apex:actionFunction name="paginateAF" action="{!paginate}" status="loading" rerender="contactLists, contactDetailsTable, contactDetailsPagingTop, contactDetailsPagingBottom, contactListsPagingTop, contactListsPagingBottom">
+                <apex:param name="whichList" value="" assignTo="{!whichList}"/>
+                <apex:param name="paginateAction" value="" assignTo="{!paginateAction}"/>
+        </apex:actionFunction>
+            <apex:actionFunction name="deleteContactAF" action="{!deleteContact}" rerender="contactDetailsTable, contactDetailsPagingTop, contactDetailsPagingBottom"  status="loading">
+                <apex:param name="selectedContactEmail" value="" assignTo="{!selectedContactEmail}"/>
+            </apex:actionFunction>
+            
+            <apex:actionFunction name="clearAddContact" rerender="addContactPicklist, addLeadPicklist"/>
+        <apex:outputpanel rendered="{!NOT(isInitialized)}">
+            <script>
+            
+            function addOnLoad(func) 
+            { 
+                var prev = window.onload; 
+                if (typeof window.onload != 'function') 
+                { 
+                    window.onload = func; 
+                } 
+                else
+                { 
+                    window.onload = function()  
+                    { 
+                        if (prev) 
+                        { 
+                            prev(); 
+                        } 
+                        func(); 
+                    } 
+                } 
+            }
+
+            addOnLoad(function()  
+            { 
+                doInitialize();
+            });
+        </script>
+        
+        <div align="center">
+            <br/><br/><br/><br/><br/><br/>
+            <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="30px;"/>
+        </div>
+        
+    </apex:outputpanel>
+    <apex:outputPanel rendered="{!isInitialized}">
+        <apex:pageBlock id="myContactsPageBlock" title="{!$Label.eventbritesync__Contact_Lists}">
+            <apex:pageblockbuttons id="buttons" location="top">
+            
+                <apex:outputPanel style="align:center;">
+                    <div style="float:left;min-height:30px;min-width:30px;">
+                        <apex:actionStatus id="loading">
+                            <apex:facet name="start">
+                                <apex:image url="{!URLFOR($Resource.EventbriteSync__CRMScience_Resources, 'Spinner.gif')}" height="20px" />
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </div>
+                 </apex:outputPanel>
+                
+                <div style=""> 
+                    <apex:outputPanel id="contactListButtons">
+                        <input type="button" onclick="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:newContactListPanel').style.display='block';" value="{!$Label.New_Contact_List}" id="newContactListButton" />
+                    </apex:outputPanel>
+                    <apex:outputPanel id="contactButtons" style="display:none;">
+                        <div style="float:left">
+                        <input type="button" value="{!$Label.Back}" onclick="contactListsTitle();document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactListsPanel').style.display ='block'; document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactDetails').style.display='none';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:contactListButtons').style.display ='block'; document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:contactButtons').style.display='none';hideMessages();"/>
+                        </div>
+                        <div>
+                        <apex:outputPanel id="addContactButtons">
+                            <input type="button" onclick="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addContactPanel').style.display='block';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addLeadPanel').style.display='none';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:addContactButtons').style.display='none';" value="{!$Label.Add_Contact}"/>
+                            <input type="button" onclick="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addLeadPanel').style.display='block';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addContactPanel').style.display='none';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:addContactButtons').style.display='none';" value="{!$Label.Add_Lead}"/>
+                        </apex:outputPanel>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+            </apex:pageblockbuttons>
+
+        <apex:pageMessages id="submitMessages"/>
+            <apex:outputPanel id="contactListsPanel">   
+                <apex:pageMessage rendered="{!(contactLists == null || contactLists.size==0) && (Core.EBCallouts.EventbriteSync__Callouts_Today__c < Core.EBCallouts.EventbriteSync__Maximum_Daily_Callouts__c)}" summary="{!$Label.eventbritesync__There_are_no_contact_lists_to_display}" severity="info" strength="1"/>
+                <apex:pageMessage rendered="{!Core.EBCallouts.EventbriteSync__Callouts_Today__c >= Core.EBCallouts.EventbriteSync__Maximum_Daily_Callouts__c}" summary="{!$Label.eventbritesync__Unable_to_load_contact_lists}" severity="error" strength="1"/>
+ 
+                <apex:outputPanel id="newContactListPanel" style="display:none;min-height:35px;">
+                    {!$Label.Name_colon} &nbsp;<apex:inputText value="{!newContactListName}" id="newContactListName"/>
+                    <input type="button" onclick="submitNewContactList();" value="{!$Label.Save}"/>
+                    <input type="button" onclick="cancelContactList();" value="{!$Label.Cancel}"/>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF((contactLists != null && contactLists.size>0) && (Core.EBCallouts.EventbriteSync__Callouts_Today__c < Core.EBCallouts.EventbriteSync__Maximum_Daily_Callouts__c),true,false)}">
+                    <br/>
+                    <apex:outputPanel id="contactListsPagingTop" styleClass="paging">
+                        <div style="width:100%;">
+                            <div style="display:inline-block">
+                                <apex:outputPanel rendered="{!contactListsPaginator.hasPrevious !=false}">
+                                    <a href="#" onclick="paginateAF('contactLists','first');">&lt;&lt;</a>
+                                    <a href="#" onclick="paginateAF('contactLists','previous');">&lt;</a>
+                                    
+                                    &nbsp;&nbsp;
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!contactListsPaginator.hasPrevious ==false}">
+                                   <!--   <input type ="button" value="<<" disabled="true"/>
+                                    <input type ="button" value="<" disabled="true"/>
+                                    &nbsp;&nbsp;-->
+                                </apex:outputPanel>
+                            </div>
+                            {!$Label.eventbritesync__Page} {!contactListspaginator.index} {!$Label.eventbritesync__of} {!contactListspaginator.pageCount}
+                            
+                             <div style="display:inline-block">
+                                <apex:outputPanel rendered="{!contactListsPaginator.hasNext !=false}">
+                                     &nbsp;&nbsp;
+                                     <a href="#" onclick="paginateAF('contactLists','next');">&gt;</a>
+                                    <a href="#" onclick="paginateAF('contactLists','last');">&gt;&gt;</a>
+                                    <!-- <input type ="button" value=">" onclick="paginateAF('contactLists','next');"/>
+                                    <input type ="button" value=">>" onclick="paginateAF('contactLists','last');"/>-->
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!contactListsPaginator.hasNext ==false}">
+                                    &nbsp;&nbsp;
+                                    
+                                </apex:outputPanel>
+                            </div>
+                            <div style="min-width:100x; display:inline-block">
+                                <apex:outputPanel rendered="{!contactListsPaginator.hasPrevious ==true || contactListsPaginator.hasNext ==true}">
+                                  &nbsp;&nbsp;   Go to: <apex:inputText value="{!gotoPage}" id="contactListsPageTop" style="width:20px" onkeyup="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactListsPageBottom').value = this.value;"/><input type="button" value="{!$Label.Go}" onclick = "paginateAF('contactLists','go')"/>
+                                </apex:outputPanel>
+                                
+                            </div>
+                            <div style="float:right;">
+                                {!contactListspaginator.currentRange}
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                
+                    <apex:pageBlockTable value="{!contactLists}" var="list" id="contactLists" columnsWidth="15%,85%">
+                        <apex:column >
+
+                            <div style="white-space:nowrap">
+                                <a href="#" onclick="loadContactDetailsAF('{!list.id}','{!list.name}');">{!$Label.Select}</a>
+                                    &nbsp;|&nbsp;
+                                    <a href="#" onclick="var x=window.confirm('{!$Label.Are_you_sure}');if(x==true)deleteContactList('{!list.id}');">{!$Label.Delete}</a>
+                            </div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"> {!$Label.eventbritesync__Name} </apex:facet>
+                            <apex:outputText value="{!list.name}"/>
+                        </apex:column>  
+                    </apex:pageBlockTable>
+                    <apex:actionFunction name="loadContactDetailsAF" action="{!loadContactDetailsNewList}" rerender="contactDetails, contactDetailsTable, contactDetailsPagingTop, contactDetailsPagingBottom" status="loading" oncomplete="contactTitle('{!selectedContactListName}');document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactListsPanel').style.display ='none'; document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactDetails').style.display='block';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:contactListButtons').style.display ='none'; document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:contactButtons').style.display='block';">
+                        <apex:param name="selectedContactListId" value="" assignTo="{!selectedContactListId}"/>
+                        <apex:param name="selectedContactListName" value="" assignTo="{!selectedContactListName}"/>
+                    </apex:actionFunction> 
+                    <apex:actionFunction name="deleteContactList" action="{!deleteContactList}" rerender="contactListsPanel, contactLists, contactListsPagingTop, contactListsPagingBottom"  status="loading">
+                        <apex:param name="selectedContactListId" value="" assignTo="{!selectedContactListId}"/>
+                    </apex:actionFunction> 
+                    <apex:outputPanel id="contactListsPagingBottom">
+	                    <apex:outputPanel rendered="{!contactLists.size > 10}">
+	                        <div>
+	                            <div style="display:inline-block">
+	                                    <apex:outputPanel rendered="{!contactListsPaginator.hasPrevious !=false}">
+	                                        <a href="#" onclick="paginateAF('contactLists','first');">&lt;&lt;</a>
+	                                        <a href="#" onclick="paginateAF('contactLists','previous');">&lt;</a>
+	                                    
+	                                        
+	                                        &nbsp;&nbsp;
+	                                    </apex:outputPanel>
+	                                    <apex:outputPanel rendered="{!contactListsPaginator.hasPrevious ==false}">
+	                                        
+	                                        &nbsp;&nbsp;
+	                                    </apex:outputPanel>
+	                                </div>
+	                                {!$Label.eventbritesync__Page} {!contactListspaginator.index} {!$Label.eventbritesync__of} {!contactListspaginator.pageCount}
+	                                
+	                                <div style="display:inline-block">
+	                                    <apex:outputPanel rendered="{!contactListsPaginator.hasNext !=false}">
+	                                        &nbsp;&nbsp;
+	                                        <a href="#" onclick="paginateAF('contactLists','next');">&gt;</a>
+	                                        <a href="#" onclick="paginateAF('contactLists','last');">&gt;&gt;</a>
+	                                    
+	                                   
+	                                    </apex:outputPanel>
+	                                    <apex:outputPanel rendered="{!contactListsPaginator.hasNext ==false}">
+	                                        &nbsp;&nbsp;
+	                                        
+	                                    </apex:outputPanel>
+	                                </div>
+	                            <div style="min-width:100px; display:inline-block">
+	                                <apex:outputPanel rendered="{!contactListsPaginator.hasPrevious ==true || contactListsPaginator.hasNext ==true}">
+	                                   &nbsp;&nbsp;  {!$Label.Go_to} <apex:inputText value="{!gotoPage}" id="contactListsPageBottom" style="width:20px" onkeyup="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactListsPageTop').value = this.value;"/><input type="button" value="{!$Label.Go}" onclick = "paginateAF('contactLists','go')"/>
+	                                </apex:outputPanel>
+	                                
+	                            </div>
+	                            <div style="float:right;">
+	                                {!contactListspaginator.currentRange}
+	                            </div>
+	                        </div>
+	                    </apex:outputPanel>
+                    </apex:outputPanel>
+                    <div style="min-height:30x;"/>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <apex:outputPanel id="contactDetails" style="display:none;">
+                <apex:outputPanel id="contactDetailsPanel" >
+                    <apex:inputHidden value="{!addContactSuccess}" id="addContactSuccess"/>
+                    <apex:pageMessage rendered="{!IF(contacts != null && contacts.size>0,false,true)}" summary="{!$Label.eventbritesync__There_are_no_contacts_to_display_Cont_Lead}" severity="info" strength="1"/>    
+                    <apex:outputPanel id="addContactPanel" style="display:none;min-height:35px;">
+                        <apex:outputPanel id="addContactPicklist">
+                            <apex:inputField value="{!newEbContact.ContactId}" id="newContactName"/>
+                        </apex:outputPanel>
+                        <input type="button" onclick="addContact();" value="{!$Label.Add_Contact}"/>
+                        <input type="button" onclick="cancelContact();" value="{!$Label.Cancel}"/>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel id="addLeadPanel" style="display:none;min-height:35px;">
+                        <apex:outputPanel id="addLeadPicklist">
+                           <apex:inputField value="{!newEbContact.LeadId}" id="newLeadName"/> 
+                        </apex:outputPanel>
+                        <input type="button" onclick="addLead();" value="{!$Label.Add_Lead}"/> 
+                        <input type="button" onclick="cancelLead();" value="{!$Label.Cancel}"/>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF(contacts != null && contacts.size>0, true,false)}">
+                        <apex:outputPanel id="contactDetailsPagingTop">
+                            <div>
+                                <div style="display:inline-block">
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasPrevious !=false}">
+                                        <a href="#" onclick="paginateAF('contacts','first');">&lt;&lt;</a>
+                                        <a href="#" onclick="paginateAF('contacts','previous');">&lt;</a>
+                                    
+                                        
+                                        &nbsp;&nbsp;
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasPrevious ==false}">
+                                        
+                                        &nbsp;&nbsp;
+                                    </apex:outputPanel>
+                                </div>
+                                {!$Label.eventbritesync__Page} {!contactspaginator.index} {!$Label.eventbritesync__of} {!contactspaginator.pageCount}
+                                
+                                <div style="display:inline-block">
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasNext !=false}">
+                                        &nbsp;&nbsp;
+                                        <a href="#" onclick="paginateAF('contacts','next');">&gt;</a>
+                                        <a href="#" onclick="paginateAF('contacts','last');">&gt;&gt;</a>
+                                    
+                                   
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasNext ==false}">
+                                        &nbsp;&nbsp;
+                                        
+                                    </apex:outputPanel>
+                                </div>
+                                <div style="min-width:100px; display:inline-block">
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasPrevious ==true || contactsPaginator.hasNext ==true}">
+                                      &nbsp;&nbsp;   Go to: <apex:inputText value="{!gotoPage}" id="contactsPageTop"  style="width:20px" onkeyup="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactsPageBottom').value = this.value;"/><input type="button" value="{!$Label.Go}" onclick = "paginateAF('contacts','go')"/>
+                                    </apex:outputPanel>
+                                    
+                                </div>
+                                <div style="float:right;">
+                                    {!contactspaginator.currentRange}
+                                </div>
+                            </div>
+
+                        </apex:outputPanel>
+                        <apex:pageBlockTable value="{!contacts}" var="c" columnsWidth="10%,30%,30%,30%" id="contactDetailsTable">
+                            <apex:column >
+                                <a href="#" onclick="var x=window.confirm('{!$Label.eventbritesync__Are_you_sure}');if(x==true)deleteContactAF('{!c.email}');">{!$Label.eventbritesync__Remove}</a>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header"> {!$Label.eventbritesync__First_Name} </apex:facet>
+                                <apex:outputText value="{!c.first_name}"/>
+                            </apex:column> 
+                            <apex:column >
+                                <apex:facet name="header">{!$Label.eventbritesync__Last_Name} </apex:facet>
+                                <apex:outputText value="{!c.last_name}"/>  
+                            </apex:column>
+                            <apex:column > 
+                                <apex:facet name="header">{!$Label.eventbritesync__Email} </apex:facet>
+                                <apex:outputText value="{!c.email}"/> 
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        
+                        <apex:outputPanel id="contactDetailsPagingBottom" >
+                        <apex:outputPanel rendered="{!contacts.size >10}">
+                            <div>
+                                <div style="display:inline-block">
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasPrevious !=false}">
+                                        <a href="#" onclick="paginateAF('contacts','first');">&lt;&lt;</a>
+                                        <a href="#" onclick="paginateAF('contacts','previous');">&lt;</a>
+                                    
+                                        
+                                        &nbsp;&nbsp;
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasPrevious ==false}">
+                                        
+                                        &nbsp;&nbsp;
+                                    </apex:outputPanel>
+                                </div>
+                                {!$Label.eventbritesync__Page} {!contactspaginator.index} {!$Label.eventbritesync__of} {!contactspaginator.pageCount}
+                                
+                                <div style="display:inline-block">
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasNext !=false}">
+                                        &nbsp;&nbsp;
+                                        <a href="#" onclick="paginateAF('contacts','next');">&gt;</a>
+                                        <a href="#" onclick="paginateAF('contacts','last');">&gt;&gt;</a>
+                                    
+                                   
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasNext ==false}">
+                                        &nbsp;&nbsp;
+                                        
+                                    </apex:outputPanel>
+                                </div>
+                                <div style="min-width:100px; display:inline-block">
+                                    <apex:outputPanel rendered="{!contactsPaginator.hasPrevious ==true || contactsPaginator.hasNext ==true}">
+                                      &nbsp;&nbsp;   {!$Label.Go_to} <apex:inputText value="{!gotoPage}" id="contactsPageBottom" style="width:20px" onkeyup="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:contactsPageTop').value = this.value;"/><input type="button" value="{!$Label.Go}" onclick = "paginateAF('contacts','go')" />
+                                    </apex:outputPanel>
+                                    
+                                </div>
+                                <div style="float:right;">
+                                    {!contactspaginator.currentRange}
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                        </apex:outputPanel>
+                        <div style="min-height:30px;"/>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+             
+        </apex:pageBlock>
+    </apex:outputPanel>
+    
+    
+    
+      
+    <apex:outputPanel id="scripts">
+    
+        <apex:actionFunction name="addContact" action="{!addContact}" status="loading" onComplete="addContactScript();" rerender="scripts, addContactPicklist, submitMessages" />
+        <apex:actionFunction name="addLead" action="{!addLead}" status="loading" onComplete="addLeadScript();" rerender="scripts, addLeadPicklist, submitMessages" />
+        
+        <apex:actionFunction name="reloadContacts" action="{!loadContactDetails}" oncomplete="document.getElementById('contactListPage:contactListForm:myContactsPageBlock:newContactName').value='';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:newLeadName').value='';" status="loading" rerender="contactDetailsPanel, contactDetailsTable, contactDetailsPagingTop, contactDetailsPagingBottom" />
+        
+        <script>
+        
+            function addContactScript(){
+            //alert('{!addContactSuccess}');
+                if({!addContactSuccess}){reloadContacts();hideMessages();document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:addContactButtons').style.display='block';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addContactSuccess').value=false;}
+            }
+            function addLeadScript(){
+            //alert('{!addContactSuccess}');
+                if({!addContactSuccess}){reloadContacts();hideMessages();document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:addContactButtons').style.display='block';document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addContactSuccess').value=false;}
+            }
+            
+            function contactListsTitle(){
+                var t = document.getElementsByClassName('mainTitle');
+                t[0].innerHTML = '{!$Label.eventbritesync__Contact_Lists}';
+            }
+            
+            function contactTitle(listName){
+                var t = document.getElementsByClassName('mainTitle');
+                t[0].innerHTML = listName;
+            }
+        
+            function hideMessages(){
+                if(document.getElementById('contactListPage:contactListForm:myContactsPageBlock:submitMessages').style.display!="none")
+                    window.setTimeout(function(){document.getElementById('contactListPage:contactListForm:myContactsPageBlock:submitMessages').style.display="none";},3000);
+            
+                }
+            
+            function cancelContactList(){
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:newContactListPanel').style.display='none';
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:newContactListName').value='';
+            
+                }
+            
+            function cancelContact(){
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addContactPanel').style.display='none';
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:newContactName').value='';
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:contactButtons').style.display='block';
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:addContactButtons').style.display='block';
+                hideMessages();
+                clearAddContact();
+                }
+            
+            function cancelLead(){
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:addLeadPanel').style.display='none';
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:newLeadName').value='';
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:contactButtons').style.display='block';
+                document.getElementById('contactListPage:contactListForm:myContactsPageBlock:buttons:addContactButtons').style.display='block';
+                hideMessages();
+                clearAddContact();
+                }
+            
+        </script>  
+    </apex:outputPanel> 
+        <style>
+        .paging{
+        margin-right:0;
+        }
+        
+        </style>
+    </apex:form>
+</apex:page>

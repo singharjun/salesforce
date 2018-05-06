@@ -1,0 +1,4 @@
+<apex:page >
+    <apex:sectionHeader title="Eventbrite" subtitle="{!$Label.eventbritesync__Integration_Log}" />
+    <apex:enhancedList type="IntegrationLog__c" height="600" rowsPerPage="25"/>
+</apex:page>

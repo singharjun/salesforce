@@ -1,0 +1,3 @@
+<apex:page controller="EventbriteSync.EventbriteImport" action="{!DoFWD}" tabstyle="Eventbrite__tab">
+    <!-- Previously where "Eventbrite Config" tab pointed to display all app settings -->
+</apex:page>

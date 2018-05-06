@@ -1,0 +1,59 @@
+<apex:page standardController="Billing_Account__c" extensions="ConsumptionsControllerWithPagination" sidebar="true" showHeader="true" >     
+    <head>
+        <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js" / >
+        <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js" />
+        <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css" />
+        <script>
+            j$ = jQuery.noConflict();
+            j$(document).ready( function () {
+                var contactTable = j$('[id$="contacttable"]').DataTable({
+                    
+                });
+            });
+        </script>
+    </head>
+    <apex:form >
+    
+        <apex:outputPanel rendered="{!!showAllRecords}">
+        <apex:pageblock id="ConsumptionsList"> 
+            <apex:pageBlockTable value="{!ConsumptionsToShow}" var="cont" rendered="{!NOT(ISNULL(ConsumptionsToShow))}">                 
+
+                <apex:column value="{!cont.Id}"/>
+                <apex:column headerValue="Billing Account"><apex:outputLink value="/{!cont.Billing_Account__c}" target="_blank">{!cont.aura_beginner__Billing_Account__r.name}</apex:outputLink> </apex:column>               
+
+                <apex:column value="{!cont.Billing_Frequency__c}"/> 
+
+                <apex:column value="{!cont.Status__c}"></apex:column>                             
+
+            </apex:pageBlockTable>
+            <apex:commandLink value="View All" style="color:#015ba7;" action="{!viewAllConsumption}" target="_parent" />
+            <apex:outputLabel value="No records to display" rendered="{!(ISNULL(ConsumptionsToShow))}" styleClass="noRowsHeader"></apex:outputLabel> 
+        </apex:pageblock> 
+    </apex:outPutPanel> 
+        
+        <apex:outputPanel rendered="{!showAllRecords}">
+        <apex:pageblock id="ConsumptionsListclone"> 
+            <table id="contacttable" class="display">
+            <thead>
+                <tr>
+                    <th>Billing Account Name</th>
+                    <th>Billing Frequency</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!ConsumptionsToShow}" var="contact">
+                    <tr>
+                        <td><a href="/{!contact.Billing_Account__c}" target="_blank">{!contact.aura_beginner__Billing_Account__r.name}</a></td>
+                        <td>{!contact.Billing_Frequency__c}</td>
+                        <td>{!contact.Status__c}</td>                        
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+        </apex:pageBlock>
+        </apex:outPutPanel>
+        
+    </apex:form>
+    
+</apex:page>

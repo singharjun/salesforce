@@ -1,0 +1,7 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+         
+      <apex:include pageName="FirstPDF"/>
+  
+  <apex:include pageName="SecondPDF"/>
+  
+</apex:page>

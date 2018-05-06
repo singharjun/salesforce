@@ -1,0 +1,95 @@
+<!-- EventbriteEventSelector page -->
+<apex:page controller="EventbriteSync.EventbriteEventSelector" showHeader="true" sidebar="true" tabstyle="Eventbrite__tab">
+	
+	<apex:sectionheader title="Event Id Assignment" subtitle="Eventbrite Import" />
+
+	<!-- Display errors on top of page. -->
+	<apex:pageMessages id="topPageErr"/>
+
+	<apex:form >
+        <apex:pageBlock title="Event Selector" >
+
+    		<!-- Apply and Cancel buttons -->
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!apply}" value="Apply"/>
+                <!-- Setting immediate to true, so the form doesn't run any validation before performing the Cancel operation. -->
+                <apex:commandButton action="{!cancel}" value="Cancel" immediate="true" />
+            </apex:pageBlockButtons>
+
+            <!-- Need Help section -->
+            <apex:pageBlockSection title="Need Help?" id="EventSelectorHelp" collapsible="true" columns="1">
+	            <apex:outputPanel >
+	                <p>
+                    The table below displays all of your Eventbrite Events, their Eventbrite Event Id's, as well as any existing Campaign Records that are already associated to those Events.  Use this page to identify any existing Campaign Records that have not yet been assigned their corresponding Eventbrite Event Id's. Use the "Campaign" lookup column to find the correct Campaign record and then use the "Apply" button above the table to assign the Eventbrite Event Id's to those records.
+                	</p>
+                	<p>
+                    Events that do not have an associated Campaign Record (records that do not have an Eventbrite Event Id populated), will be potentially re-created/duplicated when a sync is performed.  Avoid this by assigning any existing Campaign records to your events here.
+                	</p>
+	                <br />
+	            </apex:outputPanel>
+    		</apex:pageBlockSection>
+
+            <apex:pageBlockSection id="listofEvents" title="List of Events" columns="1" collapsible="false">
+		        
+		        <!-- Table of Events -->
+            	<apex:pageBlockTable id="eventTable" value="{!EventList}" var="evWrap" >
+				    <!--Event Name -->
+				    <apex:column headervalue="Event Name" >
+				    	<!-- If the URL value is not blank, we display as hyperlink. -->
+				    	<!-- Doing this because I want the item to open in a new tab. -->
+				    	<apex:outputLink rendered="{!evWrap.ebEvent.url != ''}" value="{!evWrap.ebEvent.url}" target="_blank">{!evWrap.ebEvent.Name.Text} </apex:outputLink>
+				    	
+				    	<!-- If the URL value is blank, we dont display as a hyperlink. -->
+				    	<apex:outputText rendered="{!evWrap.ebEvent.url == ''}" value="{!evWrap.ebEvent.Name.Text}" />
+				    </apex:column>
+
+				    <!-- Event Id -->
+				    <apex:column headervalue="Event Id" >
+				    	<!-- If the URL value is not blank, we display as hyperlink. -->
+				    	<!-- Doing this because I want the item to open in a new tab. -->
+				    	<apex:outputLink rendered="{!evWrap.ebEvent.url != ''}" value="{!evWrap.ebEvent.url}" target="_blank">{!evWrap.ebEvent.Id} </apex:outputLink>
+
+				    	<!-- If the URL value is blank, we dont display as a hyperlink. -->
+				    	<apex:outputText rendered="{!evWrap.ebEvent.url == ''}" value="{!evWrap.ebEvent.Id}" />
+				    </apex:column>
+
+				    <!-- Event Date/Time -->
+				    <apex:column headervalue="Event Date/Time" >
+				    	<!-- If the URL value is not blank, we display as hyperlink. -->
+				    	<!-- Doing this because I want the item to open in a new tab. -->
+				    	<apex:outputLink rendered="{!evWrap.ebEvent.url != ''}" value="{!evWrap.ebEvent.url}" target="_blank">{!evWrap.dateTme}</apex:outputLink>
+
+				    	<!-- If the URL value is blank, we dont display as a hyperlink. -->
+				    	<apex:outputText rendered="{!evWrap.ebEvent.url == ''}" value="{!evWrap.dateTme}" />
+				    </apex:column>
+
+				    <!-- Target Campaign Record -->
+				    <apex:column headervalue="Target Campaign Record"  >
+				    	<apex:inputField value="{!evWrap.opp.CampaignId}" />
+				    </apex:column>
+
+				    <!-- Campaign Eventbrite Id -->
+				    <apex:column headervalue="Campaign Eventbrite Id" >
+				    	<!-- If the URL value is not blank, we display as hyperlink. -->
+				    	<!-- Doing this because I want the item to open in a new tab. -->
+				    	<apex:outputLink rendered="{!evWrap.ebEvent.url != ''}" value="{!evWrap.ebEvent.url}" target="_blank">{!evWrap.camp.EventbriteSync__EventbriteId__c} </apex:outputLink>
+
+				    	<!-- If the URL value is blank, we dont display as a hyperlink. -->
+				    	<apex:outputText rendered="{!evWrap.ebEvent.url == ''}" value="{!evWrap.camp.EventbriteSync__EventbriteId__c}" />
+				    </apex:column>
+			    </apex:pageBlockTable>  
+
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+
+    </apex:form>
+
+    <script>
+        // Collapse all collapsible PageBlockSections with the name "Need Help?" after the page renders
+        var elements = document.getElementsByName('Need Help?');
+        for (i=0; i<elements.length; i++) {
+            twistSection(elements[i]);
+        }
+    </script>
+</apex:page>
